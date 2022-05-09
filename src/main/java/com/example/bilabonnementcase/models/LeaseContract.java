@@ -2,14 +2,14 @@ package com.example.bilabonnementcase.models;
 
 import java.sql.Blob;
 
-public class leaseContract {
+public class LeaseContract {
 
     private int contractId;
     private String salesPerson;
     private Car car;
     private Blob file;
 
-    public leaseContract(int contractId, String salesPerson, Car car, Blob file) {
+    public LeaseContract(int contractId, String salesPerson, Car car, Blob file) {
         this.contractId = contractId;
         this.salesPerson = salesPerson;
         this.car = car;
