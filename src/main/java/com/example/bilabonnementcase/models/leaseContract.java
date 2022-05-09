@@ -31,4 +31,14 @@ public class leaseContract {
     public Blob getFile() {
         return file;
     }
+
+    @Override
+    public String toString() {
+        return "leaseContract{" +
+                "contractId=" + contractId +
+                ", salesPerson='" + salesPerson + '\'' +
+                ", car=" + car +
+                ", file=" + file +
+                '}';
+    }
 }
