@@ -6,14 +6,20 @@ public class LeaseContract {
 
     private int contractId;
     private String salesPerson;
-    private Car car;
-    private Blob file;
+    private String leasePeriod;
+    private int car;
+    private String file;
 
-    public LeaseContract(int contractId, String salesPerson, Car car, Blob file) {
+    public LeaseContract(int contractId, String salesPerson, String leasePeriod, int car, String file) {
         this.contractId = contractId;
         this.salesPerson = salesPerson;
+        this.leasePeriod = leasePeriod;
         this.car = car;
         this.file = file;
+    }
+
+    public String getLeasePeriod() {
+        return leasePeriod;
     }
 
     public int getContractId() {
@@ -24,11 +30,11 @@ public class LeaseContract {
         return salesPerson;
     }
 
-    public Car getCar() {
+    public int getCar() {
         return car;
     }
 
-    public Blob getFile() {
+    public String getFile() {
         return file;
     }
 
