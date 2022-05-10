@@ -19,12 +19,13 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
     @Override
     public boolean create(LeaseContract entity) {
        try{
-           PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk(`sales_person`, `car_number`, `file`)" +
-                   "VALUES (?,?,?)");
+           PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk.leasecontracts (`sales_person`, " +
+                   "`price`, `car_number`, `file`)" + "VALUES (?,?,?,?)");
 
            pstmt.setString(1, entity.getSalesPerson());
-           pstmt.setInt(2, entity.getCarNumber());
-           pstmt.setString(3, entity.getFile());
+           pstmt.setInt(2, entity.getLeasePrice());
+           pstmt.setInt(3, entity.getCarNumber());
+           pstmt.setString(4, entity.getFile());
 
            pstmt.executeUpdate();
 
