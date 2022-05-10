@@ -19,8 +19,8 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
     @Override
     public boolean create(LeaseContract entity) {
        try{
-           PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk.leasecontracts (`sales_person`, " +
-                   "`price`, `car_number`, `file`)" + "VALUES (?,?,?,?)");
+           PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk.leasecontracts " +
+                   "(`sales_person`,`price`, `car_number`, `file`)" + "VALUES (?,?,?,?)");
 
            pstmt.setString(1, entity.getSalesPerson());
            pstmt.setInt(2, entity.getLeasePrice());
@@ -49,6 +49,16 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
 
     @Override
     public boolean delete(int id) {
-        return false;
+        try{
+            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM `owxws8zh8rp2amnk`.`leasecontracts`" +
+                    " WHERE (`leasecontracts_id` = '" + id +"' );");
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong. Try again.");
+            e.printStackTrace();
+        }
+        return true;
     }
 }

@@ -17,12 +17,21 @@ public class LeaseServices {
         int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
         String fileName = dataFromForm.getParameter("fileName");
 
-        LeaseContract tempLeaseContract = new LeaseContract(leaseContractId, username, leasePeriod, leasePrice, carNumber, fileName);
-
-        //leaseContractRepository.create(tempLeaseContract);
+        LeaseContract tempLeaseContract = new LeaseContract(leaseContractId, username, leasePeriod, leasePrice, 
+                carNumber, fileName);
 
         if(leaseContractRepository.create(tempLeaseContract) == true){
             return "redirect:/leaseSuccess";
+        }
+        return "redirect:/leaseError";
+    }
+    
+    public String deleteLeaseContract(WebRequest dataFromForm){
+
+        int leaseContractId = Integer.parseInt(dataFromForm.getParameter("id"));
+
+        if(leaseContractRepository.delete(leaseContractId) == true){
+            return "redirect:/deleteLease";
         }
         return "redirect:/leaseError";
     }
