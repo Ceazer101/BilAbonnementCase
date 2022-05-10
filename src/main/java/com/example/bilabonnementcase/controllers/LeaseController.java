@@ -1,11 +1,14 @@
 package com.example.bilabonnementcase.controllers;
 
 import com.example.bilabonnementcase.models.LeaseContract;
+import com.example.bilabonnementcase.services.LeaseServices;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
 public class LeaseController {
+
+    private LeaseServices leaseServices = new LeaseServices();
 
 
     @GetMapping("/create-lease")
@@ -14,22 +17,10 @@ public class LeaseController {
     }
 
     @PostMapping("/createLeaseContract")
-    public String wishListCreation(WebRequest dataFromForm){
+    public String createLeaseContract(WebRequest dataFromForm){
 
-        int leaseContractId = -1;
-        String username = dataFromForm.getParameter("username");
-        String leasePeriod = dataFromForm.getParameter("leasePeriod");
-        int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
-        String fileName = dataFromForm.getParameter("fileName");
+        String returnSite = leaseServices.createLeaseContract(dataFromForm);
 
-        LeaseContract tempLeaseContract = new LeaseContract(leaseContractId, username, leasePeriod, carNumber, fileName);
-
-        //wishListService.createWishList(tempLeaseContract);
-
-        return "redirect:/leaseContractSuccessPage";
+        return returnSite;
     }
-
-
-
-
 }

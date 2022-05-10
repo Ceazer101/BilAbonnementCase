@@ -2,7 +2,7 @@ package com.example.bilabonnementcase.repositories;
 
 public interface IRepository<T> {
 
-    public T create(T entity);
+    public boolean create(T entity);
 
     public T getEntityById(int id);
 

@@ -7,14 +7,14 @@ public class LeaseContract {
     private int contractId;
     private String salesPerson;
     private String leasePeriod;
-    private int car;
+    private int carNumber;
     private String file;
 
-    public LeaseContract(int contractId, String salesPerson, String leasePeriod, int car, String file) {
+    public LeaseContract(int contractId, String salesPerson, String leasePeriod, int carNumber, String file) {
         this.contractId = contractId;
         this.salesPerson = salesPerson;
         this.leasePeriod = leasePeriod;
-        this.car = car;
+        this.carNumber = carNumber;
         this.file = file;
     }
 
@@ -30,8 +30,8 @@ public class LeaseContract {
         return salesPerson;
     }
 
-    public int getCar() {
-        return car;
+    public int getCarNumber() {
+        return carNumber;
     }
 
     public String getFile() {
@@ -43,7 +43,7 @@ public class LeaseContract {
         return "leaseContract{" +
                 "contractId=" + contractId +
                 ", salesPerson='" + salesPerson + '\'' +
-                ", car=" + car +
+                ", car=" + carNumber +
                 ", file=" + file +
                 '}';
     }
