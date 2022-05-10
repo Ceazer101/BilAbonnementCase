@@ -4,7 +4,6 @@ public class Car {
 
     private int carNumber;
     private String chassisNumber;
-    private String licensePlate;
     private String brand;
     private String model;
     private String equipmentLevel;
@@ -17,7 +16,6 @@ public class Car {
                String equipmentLevel, int steelPrice, int registrationCharge, int co2Discharge, boolean rented) {
         this.carNumber = carNumber;
         this.chassisNumber = chassisNumber;
-        this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
         this.equipmentLevel = equipmentLevel;
@@ -35,9 +33,6 @@ public class Car {
         return chassisNumber;
     }
 
-    public String getLicensePlate() {
-        return licensePlate;
-    }
 
     public String getBrand() {
         return brand;
@@ -72,7 +67,6 @@ public class Car {
         return "Car{" +
                 "carNumber=" + carNumber +
                 ", chassisNumber='" + chassisNumber + '\'' +
-                ", licensePlate='" + licensePlate + '\'' +
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", equipmentLevel='" + equipmentLevel + '\'' +
