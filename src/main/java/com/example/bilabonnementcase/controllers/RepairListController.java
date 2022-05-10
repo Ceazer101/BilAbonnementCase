@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RepairListController {
 
 
-    @GetMapping("/create-repairlist")
+    @GetMapping("/create-repair")
     public String createRepairList(){
         return "createRepairList";
     }
