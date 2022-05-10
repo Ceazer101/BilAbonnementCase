@@ -23,6 +23,6 @@ public class LeaseServices {
         if(leaseContractRepository.create(tempLeaseContract) == true){
             return "redirect:/leaseSuccess";
         }
-        return "redirect:/leaseContractErrorPage";
+        return "redirect:/leaseError";
     }
 }

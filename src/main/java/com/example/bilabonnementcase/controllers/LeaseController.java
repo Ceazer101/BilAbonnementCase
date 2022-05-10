@@ -13,7 +13,7 @@ public class LeaseController {
     private LeaseServices leaseServices = new LeaseServices();
 
 
-    @GetMapping("/createLeaseContractGet")
+    @GetMapping("/getCreateLeaseContract")
     public String createLeaseContract(){
         return "createLeaseContract";
     }
@@ -21,6 +21,11 @@ public class LeaseController {
     @GetMapping("/leaseSuccess")
     public String leaseContractSuccessPage(){
         return "leaseContractSuccessPage";
+    }
+
+    @GetMapping("/leaseError")
+    public String leaseContractErrorPage(){
+        return "leaseContractErrorPage";
     }
 
     @PostMapping("/createLeaseContract")
