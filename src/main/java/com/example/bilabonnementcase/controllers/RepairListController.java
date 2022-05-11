@@ -9,23 +9,23 @@ public class RepairListController {
 
     @GetMapping("/create-repair")
     public String createRepairList(){
-        return "createRepairList";
+        return "createPages/createRepairList";
     }
 
     @GetMapping("/createRepairListSuccesPage")
     public String createRepairListSuccesPage(){
-        return "repairListSuccessPage";
+        return "successPages/createRepairListSuccessPage";
     }
 
 
     @GetMapping("/deleteRepairList")
     public String deleteRepairList(){
-        return "deleteRepairList";
+        return "deletePages/deleteRepairList";
     }
 
     @GetMapping("/deleteRepairListSuccessPage")
         public String deleteRepairListSuccessPage(){
-            return "deleteRepairListSuccessPage";
+            return "successPages/deleteRepairListSuccessPage";
         }
 
 

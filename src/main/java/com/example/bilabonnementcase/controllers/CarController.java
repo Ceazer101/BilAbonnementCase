@@ -9,7 +9,7 @@ public class CarController {
 
     @GetMapping("/view-cars")
     public String viewListOfCars(){
-        return "viewListOfCars";
+        return "viewPages/viewListOfCars";
     }
 
 

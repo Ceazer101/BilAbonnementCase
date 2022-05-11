@@ -14,12 +14,12 @@ public class LeaseController {
 
     @GetMapping("/getCreateLeaseContract")
     public String createLeaseContract(){
-        return "createLeaseContract";
+        return "createPages/createLeaseContract";
     }
 
     @GetMapping("/leaseSuccess")
     public String leaseContractSuccessPage(){
-        return "leaseContractSuccessPage";
+        return "successPages/leaseContractSuccessPage";
     }
 
     @GetMapping("/leaseError")
@@ -29,12 +29,12 @@ public class LeaseController {
 
     @GetMapping("/deleteLeaseSuccess")
     public String deleteLeaseSuccessPage(){
-        return "deleteLeaseSuccessPage";
+        return "successPages/deleteLeaseSuccessPage";
     }
 
     @GetMapping("/deleteLease")
     public String deleteLeaseContract(){
-        return "deleteLeaseContract";
+        return "deletePages/deleteLeaseContract";
     }
 
     @PostMapping("/createLeaseContract")
