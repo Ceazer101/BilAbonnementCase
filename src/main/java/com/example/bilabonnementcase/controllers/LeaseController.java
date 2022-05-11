@@ -40,7 +40,6 @@ public class LeaseController {
 
     @PostMapping("/createLeaseContract")
     public String createLeaseContract(WebRequest dataFromForm){
-
         String returnSite = leaseServices.createLeaseContract(dataFromForm);
 
         return returnSite;
@@ -48,7 +47,6 @@ public class LeaseController {
 
     @PostMapping("/deleteLeaseContract")
     public String deleteLeaseContract(WebRequest dataFromForm){
-
         String returnSite = leaseServices.deleteLeaseContract(dataFromForm);
 
         return returnSite;
