@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{Style.css}" href="../static/Style.css">
@@ -18,10 +18,14 @@
             <input type="text" id="username" name="username">
             <label for="leasePeriod">lejeperiode</label>
             <input type="text" id="leasePeriod" name="leasePeriod">
+            <label for="leasePrice">lejekontrakt pris</label>
+            <input type="text" id="leasePrice" name="leasePrice">
             <label for="carNumber">Vognnummer</label>
             <input type="text" id="carNumber" name="carNumber">
             <label for="fileName">Filnavn</label>
             <input type="text" id="fileName" name="fileName">
+            <label for="rentalStatus">Rented</label>
+            <input type="checkbox" id="rentalStatus" name="rentalStatus">
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
     </div>

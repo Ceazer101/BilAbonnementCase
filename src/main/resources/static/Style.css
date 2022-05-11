@@ -62,11 +62,19 @@ input{
     padding-bottom: 2%;
 }
 
+#leasePrice{
+    padding-bottom: 2%;
+}
+
 #carNumber{
     padding-bottom: 2%;
 }
 
 #fileName{
+    padding-bottom: 2%;
+}
+
+#leaseId{
     padding-bottom: 2%;
 }
 
