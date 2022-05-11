@@ -31,7 +31,7 @@ public class LeaseServices {
         int leaseContractId = Integer.parseInt(dataFromForm.getParameter("id"));
 
         if(leaseContractRepository.delete(leaseContractId) == true){
-            return "redirect:/deleteLease";
+            return "redirect:/deleteLeaseSuccess";
         }
         return "redirect:/leaseError";
     }

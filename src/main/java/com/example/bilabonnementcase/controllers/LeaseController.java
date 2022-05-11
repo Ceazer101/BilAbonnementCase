@@ -28,6 +28,11 @@ public class LeaseController {
         return "leaseContractErrorPage";
     }
 
+    @GetMapping("/deleteLeaseSuccess")
+    public String deleteLeaseSuccessPage(){
+        return "deleteLeaseSuccessPage";
+    }
+
     @GetMapping("/deleteLease")
     public String deleteLeaseContract(){
         return "deleteLeaseContract";
