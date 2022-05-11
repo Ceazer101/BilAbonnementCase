@@ -12,4 +12,23 @@ public class RepairListController {
         return "createRepairList";
     }
 
+    @GetMapping("/createRepairListSuccesPage")
+    public String createRepairListSuccesPage(){
+        return "repairListSuccessPage";
+    }
+
+
+    @GetMapping("/deleteRepairList")
+    public String deleteRepairList(){
+        return "deleteRepairList";
+    }
+
+    @GetMapping("/deleteRepairListSuccessPage")
+        public String deleteRepairListSuccessPage(){
+            return "deleteRepairListSuccessPage";
+        }
+
+
+
+
 }
