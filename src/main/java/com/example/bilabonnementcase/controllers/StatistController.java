@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class StatistController {
 
     @GetMapping("/viewStatistics")
-    public String createRepairList(){
-        return "viewStatistics";
+    public String viewStatistics(){
+        return "viewPages/viewStatistics";
     }
 }
