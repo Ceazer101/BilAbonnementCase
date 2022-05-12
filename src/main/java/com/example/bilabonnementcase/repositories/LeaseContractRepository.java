@@ -15,7 +15,6 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
         this.conn = DatabaseConnectionManager.getConnection();
     }
 
-
     @Override
     public boolean create(LeaseContract entity) {
        try{
