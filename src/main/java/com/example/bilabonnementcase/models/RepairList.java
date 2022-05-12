@@ -8,10 +8,10 @@ public class RepairList {
     private String damageDescription;
     private String missingCarPieceDescription;
     private double damagePrice;
-    private Car carNumber;
+    private int carNumber;
 
     public RepairList(int repairListId, String damageTitle, String missingCarPieceTitle, String damageDescription,
-                      String missingCarPieceDescription, double damagePrice, Car carNumber) {
+                      String missingCarPieceDescription, double damagePrice, int carNumber) {
         this.repairListId = repairListId;
         this.damageTitle = damageTitle;
         this.missingCarPieceTitle = missingCarPieceTitle;
@@ -45,7 +45,7 @@ public class RepairList {
         return damagePrice;
     }
 
-    public Car getCarNumber() {
+    public int getCarNumber() {
         return carNumber;
     }
 

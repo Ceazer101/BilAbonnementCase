@@ -12,7 +12,7 @@ public class Car {
     private int co2Discharge;
     private boolean rented;
 
-    public Car(int carNumber, String chassisNumber, String licensePlate, String brand, String model,
+    public Car(int carNumber, String chassisNumber, String brand, String model,
                String equipmentLevel, int steelPrice, int registrationCharge, int co2Discharge, boolean rented) {
         this.carNumber = carNumber;
         this.chassisNumber = chassisNumber;
