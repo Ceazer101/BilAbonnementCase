@@ -16,8 +16,8 @@ class LeaseServicesTest {
         DummyLeaseRepo repo = new DummyLeaseRepo();
         LeaseServices service = new LeaseServices(repo);
 
-        LeaseContract otherTempLeaseContract = new LeaseContract(-1, "Chrisl", 6566, 2, "djdddf");
-        LeaseContract tempLeaseContract = new LeaseContract(-1, "Chris", 666, 4, "djdf");
+        LeaseContract otherTempLeaseContract = new LeaseContract(-1, "Chrisl", "2017-09-03", 6566, 4, "djdddf");
+        LeaseContract tempLeaseContract = new LeaseContract(-1, "Chris", "2022-02-04", 666, 2, "djdf");
 
         //Act
         String actual = service.createLeaseContract(otherTempLeaseContract);
