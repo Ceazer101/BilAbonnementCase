@@ -1,10 +1,18 @@
 package com.example.bilabonnementcase.controllers;
 
+import com.example.bilabonnementcase.repositories.LeaseContractRepository;
+import com.example.bilabonnementcase.repositories.RepairListRepository;
+import com.example.bilabonnementcase.services.LeaseServices;
+import com.example.bilabonnementcase.services.RepairListServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class RepairListController {
+
+    private RepairListServices repairListServices = new RepairListServices(new RepairListRepository());
 
 
     @GetMapping("/create-repair")
@@ -28,7 +36,17 @@ public class RepairListController {
             return "successPages/deleteRepairListSuccessPage";
         }
 
+    @GetMapping("/repairListError")
+    public String leaseContractErrorPage(){
+        return "errorPage";
+    }
 
+    @PostMapping("/deleteRepairList")
+    public String deleteLeaseContract(WebRequest dataFromForm){
+        int repairListId = Integer.parseInt(dataFromForm.getParameter("id"));
 
+        String returnSite = repairListServices.deleteRepairList(repairListId);
 
+        return returnSite;
+    }
 }
