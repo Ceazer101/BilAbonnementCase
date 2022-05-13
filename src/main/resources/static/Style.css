@@ -78,6 +78,10 @@ input{
     padding-bottom: 2%;
 }
 
+#repairListId{
+    padding-bottom: 2%;
+}
+
 input[type=submit]{
     width: 30%;
     float:right;
