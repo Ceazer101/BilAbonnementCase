@@ -11,7 +11,7 @@ public class RepairListRepository implements IRepository<RepairList> {
 
     private Connection conn;
 
-    public RepairListRepository(){
+    public RepairListRepository() {
         this.conn = DatabaseConnectionManager.getConnection();
     }
 
@@ -33,6 +33,16 @@ public class RepairListRepository implements IRepository<RepairList> {
 
     @Override
     public boolean delete(int id) {
-        return false;
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM `owxws8zh8rp2amnk`.`repairlists`" +
+                    " WHERE (`repairlist_id` = '" + id + "' );");
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong. Try again.");
+            e.printStackTrace();
+        }
+        return true;
     }
 }
