@@ -20,17 +20,17 @@ public class LeaseController {
     }
 
     @GetMapping("/leaseSuccess")
-    public String leaseContractSuccessPage(){
+    public String leaseContractSuccess(){
         return "successPages/leaseContractSuccessPage";
     }
 
     @GetMapping("/leaseError")
-    public String leaseContractErrorPage(){
+    public String leaseContractError(){
         return "errorPage";
     }
 
     @GetMapping("/deleteLeaseSuccess")
-    public String deleteLeaseSuccessPage(){
+    public String deleteLeaseSuccess(){
         return "successPages/deleteLeaseSuccessPage";
     }
 
