@@ -3,21 +3,14 @@ package com.example.bilabonnementcase.models;
 public class RepairList {
 
     private int repairListId;
-    private String damageTitle;
-    private String missingCarPieceTitle;
-    private String damageDescription;
-    private String missingCarPieceDescription;
-    private double damagePrice;
+    private int damage;
+    private String repairStart;
     private int carNumber;
 
-    public RepairList(int repairListId, String damageTitle, String missingCarPieceTitle, String damageDescription,
-                      String missingCarPieceDescription, double damagePrice, int carNumber) {
+    public RepairList(int repairListId, int damage, String repairStart, int carNumber) {
         this.repairListId = repairListId;
-        this.damageTitle = damageTitle;
-        this.missingCarPieceTitle = missingCarPieceTitle;
-        this.damageDescription = damageDescription;
-        this.missingCarPieceDescription = missingCarPieceDescription;
-        this.damagePrice = damagePrice;
+        this.damage = damage;
+        this.repairStart = repairStart;
         this.carNumber = carNumber;
     }
 
@@ -25,24 +18,12 @@ public class RepairList {
         return repairListId;
     }
 
-    public String getDamageTitle() {
-        return damageTitle;
+    public int getDamage() {
+        return damage;
     }
 
-    public String getMissingCarPieceTitle() {
-        return missingCarPieceTitle;
-    }
-
-    public String getDamageDescription() {
-        return damageDescription;
-    }
-
-    public String getMissingCarPieceDescription() {
-        return missingCarPieceDescription;
-    }
-
-    public double getDamagePrice() {
-        return damagePrice;
+    public String getRepairStart() {
+        return repairStart;
     }
 
     public int getCarNumber() {
@@ -53,11 +34,8 @@ public class RepairList {
     public String toString() {
         return "RepairList{" +
                 "repairListId=" + repairListId +
-                ", damageTitle='" + damageTitle + '\'' +
-                ", missingCarPieceTitle='" + missingCarPieceTitle + '\'' +
-                ", damageDescription='" + damageDescription + '\'' +
-                ", missingCarPieceDescription='" + missingCarPieceDescription + '\'' +
-                ", damagePrice=" + damagePrice +
+                ", damage=" + damage +
+                ", repairStart='" + repairStart + '\'' +
                 ", carNumber=" + carNumber +
                 '}';
     }

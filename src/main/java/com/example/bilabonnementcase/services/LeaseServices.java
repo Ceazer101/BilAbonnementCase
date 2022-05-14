@@ -18,7 +18,7 @@ public class LeaseServices {
         if(repository.create(leaseContract) == true){
             return "redirect:/leaseSuccess";
         }
-        return "redirect:/leaseError";
+        return "redirect:/errorPage";
     }
     
     public String deleteLeaseContract(int leaseContractId){
@@ -26,6 +26,6 @@ public class LeaseServices {
         if(repository.delete(leaseContractId) == true){
             return "redirect:/deleteLeaseSuccess";
         }
-        return "redirect:/leaseError";
+        return "redirect:/errorPage";
     }
 }

@@ -2,16 +2,22 @@ package com.example.bilabonnementcase.models;
 
 public class Damage {
 
+    private int damageId;
     private String damageTitle;
     private String damageDescription;
     private int damagePrice;
     private int repairListId;
 
-    public Damage(String damageTitle, String damageDescription, int damagePrice, int repairListId) {
+    public Damage(int damageId, String damageTitle, String damageDescription, int damagePrice, int repairListId) {
+        this.damageId = damageId;
         this.damageTitle = damageTitle;
         this.damageDescription = damageDescription;
         this.damagePrice = damagePrice;
         this.repairListId = repairListId;
+    }
+
+    public int getDamageId() {
+        return damageId;
     }
 
     public String getDamageTitle() {
@@ -49,7 +55,8 @@ public class Damage {
     @Override
     public String toString() {
         return "Damage{" +
-                "damageTitle='" + damageTitle + '\'' +
+                "damageId=" + damageId +
+                ", damageTitle='" + damageTitle + '\'' +
                 ", damageDescription='" + damageDescription + '\'' +
                 ", damagePrice=" + damagePrice +
                 ", repairListId=" + repairListId +

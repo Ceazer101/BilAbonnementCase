@@ -9,7 +9,7 @@ public class DummyLeaseRepo implements IRepository<LeaseContract>{
 
     ArrayList<LeaseContract> leases = new ArrayList<LeaseContract>(
             Arrays.asList(
-                    new LeaseContract(-1, "Chris", "2022-02-04", 666, 2, "djdf")
+                    new LeaseContract(1, "Chris", "2022-02-04", 666, 2, "djdf")
             )
     );
 
@@ -35,6 +35,11 @@ public class DummyLeaseRepo implements IRepository<LeaseContract>{
 
     @Override
     public boolean delete(int id) {
+        for(LeaseContract l: leases){
+            if(id == l.getContractId()){
+                return true;
+            }
+        }
         return false;
     }
 }

@@ -7,6 +7,22 @@
     <title>createRepairList</title>
 </head>
 <body>
+<div class="content">
+    <div class="heading">
+        <h1>Register skader og reparationer</h1>
+    </div>
+    <div class="form">
+        <form method="POST" action="/createRepairList">
+            <label for="damage">skade id (maybe remove)</label>
+            <input type="text" id="damage" name="damage">
+            <label for="damagePeriod">reperation startsperiode</label>
+            <input type="text" id="damagePeriod" name="damagePeriod">
+            <label for="carNumber">Vognnummer</label>
+            <input type="text" id="carNumber" name="carNumber">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>
