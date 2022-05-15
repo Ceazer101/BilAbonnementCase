@@ -1,5 +1,7 @@
 package com.example.bilabonnementcase.controllers;
 
+import com.example.bilabonnementcase.models.LeaseContract;
+import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.repositories.LeaseContractRepository;
 import com.example.bilabonnementcase.repositories.RepairListRepository;
 import com.example.bilabonnementcase.services.LeaseServices;
@@ -39,6 +41,20 @@ public class RepairListController {
     @GetMapping("/repairListError")
     public String leaseContractErrorPage(){
         return "errorPage";
+    }
+
+    @PostMapping("/createRepairList")
+    public String createRepairList(WebRequest dataFromForm){
+        int repairListId = -1;
+        int damageId = -1;
+        String repairStart = dataFromForm.getParameter("repairStart");
+        int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
+
+        RepairList tempRepairList = new RepairList(repairListId, damageId, repairStart, carNumber);
+
+        String returnSite = repairListServices.createRepairList(tempRepairList);
+
+        return returnSite;
     }
 
     @PostMapping("/deleteRepairList")
