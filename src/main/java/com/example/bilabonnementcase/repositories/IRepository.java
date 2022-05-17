@@ -6,7 +6,7 @@ public interface IRepository<T> {
 
     public T getEntityById(int id);
 
-    public boolean update(T entity);
+    public boolean update(String collumn, int id);
 
     public boolean delete(int id);
 }

@@ -26,4 +26,18 @@ public class RepairListServices {
         }
         return "redirect:/errorPage";
     }
+
+    public String getCollumnName(String input){
+        String collumn = "";
+
+        if (input.equals("start")){
+            collumn = "repair_start";
+        } else if(input.equals("car")){
+            collumn = "car_number";
+        }
+
+        return collumn;
+    }
+
+
 }

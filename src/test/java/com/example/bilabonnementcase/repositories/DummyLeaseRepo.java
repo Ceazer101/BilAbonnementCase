@@ -29,7 +29,7 @@ public class DummyLeaseRepo implements IRepository<LeaseContract>{
     }
 
     @Override
-    public boolean update(LeaseContract entity) {
+    public boolean update(String collumnName, int id) {
         return false;
     }
 

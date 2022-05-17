@@ -39,7 +39,18 @@ public class RepairListRepository implements IRepository<RepairList> {
     }
 
     @Override
-    public boolean update(RepairList entity) {
+    public boolean update(String collumnName, int id) {
+
+        try{
+            PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.repairlists " +
+                    "SET " + collumnName + " WHERE (repairlist_id = " + id + ")");
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
         return false;
     }
 
