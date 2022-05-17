@@ -3,6 +3,7 @@ package com.example.bilabonnementcase.repositories;
 import com.example.bilabonnementcase.models.User;
 
 public class UserRepository implements IRepository<User>{
+
     @Override
     public boolean create(User entity) {
         return false;
@@ -14,7 +15,7 @@ public class UserRepository implements IRepository<User>{
     }
 
     @Override
-    public boolean update(User entity) {
+    public boolean update(String collumn, int id) {
         return false;
     }
 
