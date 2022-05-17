@@ -51,7 +51,7 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
     public boolean delete(int id) {
         try{
             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM `owxws8zh8rp2amnk`.`leasecontracts`" +
-                    " WHERE (`leasecontracts_id` = '" + id +"' );");
+                    " WHERE (`car_number` = '" + id +"' );");
 
             pstmt.executeUpdate();
 
