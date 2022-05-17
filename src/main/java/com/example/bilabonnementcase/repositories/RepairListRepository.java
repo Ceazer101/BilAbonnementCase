@@ -19,11 +19,10 @@ public class RepairListRepository implements IRepository<RepairList> {
     public boolean create(RepairList entity) {
         try{
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk.repairlists " +
-                    "(`damage`, `repair_start`, `car_number`)" + "VALUES (?,?,?)");
+                    "(`repair_start`, `car_number`)" + "VALUES (?,?)");
 
-            pstmt.setObject(1, entity.getDamage());
-            pstmt.setString(2, entity.getRepairStart());
-            pstmt.setInt(3, entity.getCarNumber());
+            pstmt.setString(1, entity.getRepairStart());
+            pstmt.setInt(2, entity.getCarNumber());
 
             pstmt.executeUpdate();
 
