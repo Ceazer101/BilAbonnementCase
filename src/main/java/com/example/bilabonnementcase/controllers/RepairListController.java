@@ -22,8 +22,8 @@ public class RepairListController {
         return "createPages/createRepairList";
     }
 
-    @GetMapping("/createRepairListSuccesPage")
-    public String createRepairListSuccesPage(){
+    @GetMapping("/createRepairListSuccessPage")
+    public String createRepairListSuccessPage(){
         return "successPages/createRepairListSuccessPage";
     }
 
@@ -46,11 +46,10 @@ public class RepairListController {
     @PostMapping("/createRepairList")
     public String createRepairList(WebRequest dataFromForm){
         int repairListId = -1;
-        int damageId = -1;
-        String repairStart = dataFromForm.getParameter("repairStart");
+        String repairStart = dataFromForm.getParameter("damagePeriod");
         int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
 
-        RepairList tempRepairList = new RepairList(repairListId, damageId, repairStart, carNumber);
+        RepairList tempRepairList = new RepairList(repairListId, repairStart, carNumber);
 
         String returnSite = repairListServices.createRepairList(tempRepairList);
 

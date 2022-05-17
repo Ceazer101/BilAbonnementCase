@@ -7,30 +7,42 @@
     <link rel="stylesheet" th:href="@{Style.css}" href="../static/Style.css">
 </head>
 <body>
-<div class="heading">
-    <h1>Welcome to BilAbonnoment employee systems</h1>
-</div>
 <div>
+    <br>
+    <br>
+    <h1>Velkommen til din hovedmenu</h1>
+</div>
+<div class="content">
+
+    <br>
+    <br>
     <div>
-        <h2>Choose one of the following options</h2>
+        <h2>Du har følgende valgmuligheder:</h2>
     </div>
-    <form class="form">
-        <div class="userOptions">
-            <a href ="getCreateLeaseContract">
-                <button type="button" class="btn btn-primary">Opret lejekontrakt</button>
-            </a>
-        </div>
-        <div class="userOptions">
-            <a href ="create-repair">
-                <button type="button" class="btn btn-primary">Opret skade/udebrings liste</button>
-            </a>
-        </div>
-        <div class="userOptions">
-            <a href ="viewStatistics">
-                <button type="button" class="btn btn-primary">Se statistiker</button>
-            </a>
-        </div>
-    </form>
+
+    <div class="form">
+
+        <br>
+
+        <a href="/getCreateLeaseContract">
+            <button type="button" class="btn btn-primary">Opret Lejeaftale</button>
+        </a>
+
+
+        <a href="/create-repair">
+            <button type="button" class="btn btn-primary">Opret Reparation</button>
+        </a>
+
+
+        <a href="/viewStatistics">
+            <button type="button" class="btn btn-primary">Se Statestikker</button>
+        </a>
+
+        <br>
+
+    </div>
+
+
 </div>
 <div th:replace="fragments/generalFooter.html :: footer"></div>
 </body>

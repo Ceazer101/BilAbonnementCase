@@ -7,9 +7,8 @@ public class RepairList {
     private String repairStart;
     private int carNumber;
 
-    public RepairList(int repairListId, int damage, String repairStart, int carNumber) {
+    public RepairList(int repairListId, String repairStart, int carNumber) {
         this.repairListId = repairListId;
-        this.damage = damage;
         this.repairStart = repairStart;
         this.carNumber = carNumber;
     }
