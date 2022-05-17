@@ -3,7 +3,6 @@ package com.example.bilabonnementcase.models;
 public class RepairList {
 
     private int repairListId;
-    private int damage;
     private String repairStart;
     private int carNumber;
 
@@ -15,10 +14,6 @@ public class RepairList {
 
     public int getRepairListId() {
         return repairListId;
-    }
-
-    public int getDamage() {
-        return damage;
     }
 
     public String getRepairStart() {
@@ -33,7 +28,6 @@ public class RepairList {
     public String toString() {
         return "RepairList{" +
                 "repairListId=" + repairListId +
-                ", damage=" + damage +
                 ", repairStart='" + repairStart + '\'' +
                 ", carNumber=" + carNumber +
                 '}';
