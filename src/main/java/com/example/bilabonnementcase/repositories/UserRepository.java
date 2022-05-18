@@ -1,5 +1,6 @@
 package com.example.bilabonnementcase.repositories;
 
+import com.example.bilabonnementcase.models.Role;
 import com.example.bilabonnementcase.models.User;
 import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
 
@@ -61,6 +62,30 @@ public class UserRepository implements IRepository<User>{
 
         return isAMatch;
     }
+
+    public Role getRoleByUsername(String username){
+        Role role = null;
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM owxws8zh8rp2amnk.users" +
+                    " WHERE (`username` = ? );");
+
+            pstmt.setString(1, username);
+
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()){
+                role = Role.valueOf(rs.getString("role"));
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return role;
+    }
+
+
 
 
 }
