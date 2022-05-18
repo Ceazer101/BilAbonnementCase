@@ -26,6 +26,11 @@ public class UserController {
         return "menuPages/dataRegistrator";
     }
 
+    @GetMapping("/damage-reg")
+    public String damageRegistrator(){
+        return "menuPages/damageRegistrator";
+    }
+
     @PostMapping("/logIn")
     public String loginForm(WebRequest wr, HttpSession session){
         String username = wr.getParameter("username");
