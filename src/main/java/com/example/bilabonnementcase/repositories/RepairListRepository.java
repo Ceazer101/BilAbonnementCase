@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
+//Author: Güler
 public class RepairListRepository implements IRepository<RepairList> {
 
     private Connection conn;

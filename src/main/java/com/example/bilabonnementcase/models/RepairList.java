@@ -1,5 +1,7 @@
 package com.example.bilabonnementcase.models;
 
+
+//Author: Güler
 public class RepairList {
 
     private int repairListId;

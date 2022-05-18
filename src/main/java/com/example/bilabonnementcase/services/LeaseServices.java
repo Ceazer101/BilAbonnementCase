@@ -4,6 +4,7 @@ import com.example.bilabonnementcase.models.LeaseContract;
 import com.example.bilabonnementcase.repositories.IRepository;
 
 //Author: Maja
+//Author: Güler
 public class LeaseServices {
 
     private final IRepository<LeaseContract> repository;
