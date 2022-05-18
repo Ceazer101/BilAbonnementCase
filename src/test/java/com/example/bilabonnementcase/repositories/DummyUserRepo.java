@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DummyUserRepo implements IRepository{
-
+/*
     ArrayList<User> userList = new ArrayList<User>(
             Arrays.asList(
                     new User("maja", "hej"),
@@ -24,7 +24,7 @@ public class DummyUserRepo implements IRepository{
             }
         }
         return false;
-    }
+    }*/
 
     @Override
     public boolean create(Object entity) {

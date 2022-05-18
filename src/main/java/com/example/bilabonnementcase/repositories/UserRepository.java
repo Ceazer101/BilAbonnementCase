@@ -38,20 +38,20 @@ public class UserRepository implements IRepository<User>{
         return false;
     }
 
-    public boolean validateLoginInformation(User user){
+    public boolean validateLoginInformation(String username, String password){
         boolean isAMatch = false;
 
         try{
             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM owxws8zh8rp2amnk.users" +
                     " WHERE (`username` = ? AND `password` = ?);");
 
-            pstmt.setString(1, user.getUsername());
-            pstmt.setString(2, user.getPassword());
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
 
             ResultSet rsVerify = pstmt.executeQuery();
 
             while (rsVerify.next()) {
-                if(user.getPassword().equals(rsVerify.getString("password")) && user.getUsername().equals(rsVerify.getString("username"))){
+                if(password.equals(rsVerify.getString("password")) && username.equals(rsVerify.getString("username"))){
                     isAMatch = true;
                 }
             }
@@ -63,26 +63,30 @@ public class UserRepository implements IRepository<User>{
         return isAMatch;
     }
 
-    public Role getRoleByUsername(String username){
+    public User getUserByUsername(String username){
+        String password = "";
         Role role = null;
+        User thisUser = null;
 
         try {
             PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM owxws8zh8rp2amnk.users" +
-                    " WHERE (`username` = ? );");
+                    " WHERE (`username` = ?);");
 
             pstmt.setString(1, username);
 
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()){
+                password = rs.getString("password");
                 role = Role.valueOf(rs.getString("role"));
             }
 
+            thisUser = new User(username, password, role);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return role;
+        return thisUser;
     }
 
 

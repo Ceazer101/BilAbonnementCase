@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserServicesTest {
 
-    @Test
+    /*@Test
     void validateLogin() {
         DummyUserRepo dummyUserRepo = new DummyUserRepo();
 
@@ -27,5 +27,5 @@ class UserServicesTest {
         assertEquals(expectedFault, actualResult2);
         assertEquals(expectedFault, actualResult3);
 
-    }
+    }*/
 }
