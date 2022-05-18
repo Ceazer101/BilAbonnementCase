@@ -3,6 +3,7 @@ package com.example.bilabonnementcase.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+//Author: Maja
 @Controller
 public class HomeController {
 

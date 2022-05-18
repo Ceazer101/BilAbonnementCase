@@ -3,7 +3,7 @@ package com.example.bilabonnementcase.services;
 import com.example.bilabonnementcase.models.LeaseContract;
 import com.example.bilabonnementcase.repositories.IRepository;
 
-
+//Author: Maja
 public class LeaseServices {
 
     private final IRepository<LeaseContract> repository;

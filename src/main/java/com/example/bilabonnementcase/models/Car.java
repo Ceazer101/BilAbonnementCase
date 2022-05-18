@@ -1,5 +1,6 @@
 package com.example.bilabonnementcase.models;
 
+//Author: Maja
 public class Car {
 
     private int carNumber;

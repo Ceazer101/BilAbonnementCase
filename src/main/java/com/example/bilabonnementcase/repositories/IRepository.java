@@ -1,5 +1,6 @@
 package com.example.bilabonnementcase.repositories;
 
+//Author: Maja
 public interface IRepository<T> {
 
     public boolean create(T entity);

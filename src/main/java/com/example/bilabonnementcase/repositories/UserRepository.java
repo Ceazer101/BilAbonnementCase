@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//Author: Maja
 public class UserRepository implements IRepository<User>{
 
     private Connection conn;
