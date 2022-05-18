@@ -28,7 +28,7 @@ public class UserController {
 
         //Check at de er valide
         String response = userService.validateLogin(potentialLoginUser);
-        if(!response.equals("redirect:/errorPage")){
+        if(!response.equals("redirect:/error-page")){
             session.setAttribute("isLoggedIn", true);
             session.setAttribute("currentLoggedInUser", potentialLoginUser);
         }

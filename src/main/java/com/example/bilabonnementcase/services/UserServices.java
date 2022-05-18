@@ -26,7 +26,7 @@ public class UserServices {
             }
         }
 
-        return "redirect:/errorPage";
+        return "redirect:/error-page";
     }
 
 
