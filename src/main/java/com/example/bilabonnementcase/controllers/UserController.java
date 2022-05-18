@@ -26,7 +26,7 @@ public class UserController {
         return "menuPages/dataRegistrator";
     }
 
-    @GetMapping("/damage-reg")
+    @GetMapping("/damageRegistrator")
     public String damageRegistrator(){
         return "menuPages/damageRegistrator";
     }
