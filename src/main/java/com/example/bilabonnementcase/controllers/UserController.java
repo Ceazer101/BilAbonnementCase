@@ -43,11 +43,11 @@ public class UserController {
             session.setAttribute("isLoggedIn", false);
         }
 
-        boolean temp = (boolean) session.getAttribute("isLoggedIn");
+        boolean isLoggedIn = (boolean) session.getAttribute("isLoggedIn");
 
-        if(temp == true){
+        if(isLoggedIn == true){
             return "menuPages/admin";
-        }else if(temp == false){
+        }else if(isLoggedIn == false){
             return "redirect:/error-page";
         }
         return "redirect:/";
