@@ -31,13 +31,25 @@ public class UserController {
         if(!response.equals("redirect:/error-page")){
             session.setAttribute("isLoggedIn", true);
             session.setAttribute("currentLoggedInUser", potentialLoginUser);
+            session.setAttribute("role", potentialLoginUser.getRole());
         }
         return response;
     }
 
     @GetMapping("/admin")
-    public String admin(){
-        return "menuPages/admin";
-    }
+    public String admin(HttpSession session){
 
+        if(session.getAttribute("isLoggedIn") == null){
+            session.setAttribute("isLoggedIn", false);
+        }
+
+        boolean temp = (boolean) session.getAttribute("isLoggedIn");
+
+        if(temp == true){
+            return "menuPages/admin";
+        }else if(temp == false){
+            return "redirect:/error-page";
+        }
+        return "redirect:/";
+    }
 }
