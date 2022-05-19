@@ -37,7 +37,22 @@ public class UserServices {
         return userRepository.getUserByUsername(username);
     }
 
+    public boolean checkLoginStatus(HttpSession session){
+        if(session.getAttribute("isLoggedIn") == null){
+            return false;
+        }
+        return true;
+    }
 
+    public Role verifyUserRole(HttpSession session){
+        if(session.getAttribute("currentLoggedInUser") == null){
+            session.setAttribute("currentLoggedInUser", new User());
+        }
+
+        User currentUser = (User) session.getAttribute("currentLoggedInUser");
+        Role currentUserRole = currentUser.getRole();
+        return currentUserRole;
+    }
 
 
 

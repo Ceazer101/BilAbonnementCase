@@ -72,7 +72,7 @@ public class StatisticsRepository {
     }
 
 
-    public int rentedCarsValue(){
+    public int valueOfRentedCars(){
         Connection con = DatabaseConnectionManager.getConnection();
         ArrayList<Integer> prices = new ArrayList<>();
         int getPrice;

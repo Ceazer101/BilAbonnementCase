@@ -47,19 +47,10 @@ public class UserController {
 
     @GetMapping("/admin")
     public String admin(HttpSession session){
+        boolean isLoggedIn = userService.checkLoginStatus(session);
+        session.setAttribute("isLoggedIn", isLoggedIn);
 
-        if(session.getAttribute("isLoggedIn") == null){
-            session.setAttribute("isLoggedIn", false);
-        }
-
-        boolean isLoggedIn = (boolean) session.getAttribute("isLoggedIn");
-
-        if(session.getAttribute("currentLoggedInUser") == null){
-            session.setAttribute("currentLoggedInUser", new User());
-        }
-
-        User temp = (User) session.getAttribute("currentLoggedInUser");
-        Role role = temp.getRole();
+        Role role = userService.verifyUserRole(session);
 
         if(isLoggedIn == true && role.equals(Role.ADMIN)){
             return "menuPages/admin";
