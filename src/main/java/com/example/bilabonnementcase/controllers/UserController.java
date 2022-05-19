@@ -36,12 +36,7 @@ public class UserController {
         String username = wr.getParameter("username");
         String password = wr.getParameter("password");
 
-        String response = userService.validateLogin(username, password);
-        if(!response.equals("redirect:/error-page")){
-            User loginUser = userService.getUserByUsername(username);
-            session.setAttribute("isLoggedIn", true);
-            session.setAttribute("currentLoggedInUser", loginUser);
-        }
+        String response = userService.loginResponse(username, password, session);
         return response;
     }
 

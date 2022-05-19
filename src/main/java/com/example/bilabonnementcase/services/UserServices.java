@@ -37,6 +37,16 @@ public class UserServices {
         return userRepository.getUserByUsername(username);
     }
 
+    public String loginResponse(String username, String password, HttpSession session){
+        String response = validateLogin(username, password);
+        if(!response.equals("redirect:/error-page")){
+            User loginUser = getUserByUsername(username);
+            session.setAttribute("isLoggedIn", true);
+            session.setAttribute("currentLoggedInUser", loginUser);
+        }
+        return response;
+    }
+
     public boolean checkLoginStatus(HttpSession session){
         if(session.getAttribute("isLoggedIn") == null){
             return false;
