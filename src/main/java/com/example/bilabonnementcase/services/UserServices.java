@@ -1,9 +1,7 @@
 package com.example.bilabonnementcase.services;
-
 import com.example.bilabonnementcase.models.Role;
 import com.example.bilabonnementcase.models.User;
 import com.example.bilabonnementcase.repositories.UserRepository;
-
 import javax.servlet.http.HttpSession;
 
 //Author: Maja, Güler
@@ -24,9 +22,9 @@ public class UserServices {
             } else if(user.getRole().equals(Role.DATAREGISTRATOR)){
                 return "redirect:/data-reg";
             } else if(user.getRole().equals(Role.DAMAGEREGISTRATOR)){
-                return "redirect:/damageRegistrator";
+                return "redirect:/damage-reg";
             } else if (user.getRole().equals(Role.BUSINESSDEVELOPER)){
-                return "redirect:/businessDeveloper";
+                return "redirect:/business-dev";
             }
         }
 

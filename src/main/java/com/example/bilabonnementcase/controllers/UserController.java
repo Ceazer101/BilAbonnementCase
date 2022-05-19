@@ -1,7 +1,5 @@
 package com.example.bilabonnementcase.controllers;
-
 import com.example.bilabonnementcase.models.Role;
-import com.example.bilabonnementcase.models.User;
 import com.example.bilabonnementcase.services.UserServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,16 +20,37 @@ public class UserController {
     }
 
     @GetMapping("/data-reg")
-    public String dataRegistrator(){
-        return "menuPages/dataRegistrator";
+    public String dataRegistrator(HttpSession session){
+        boolean isLoggedIn = userService.checkLoginStatus(session);
+        session.setAttribute("isLoggedIn", isLoggedIn);
+
+        Role role = userService.verifyUserRole(session);
+
+        if(isLoggedIn == true && (role.equals(Role.DATAREGISTRATOR) || role.equals(Role.ADMIN))){
+            return "menuPages/dataRegistrator";
+        } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
+            return "redirect:/";
+        }
+        return "redirect:/";
+
     }
 
-    @GetMapping("/damageRegistrator")
-    public String damageRegistrator(){
-        return "menuPages/damageRegistrator";
+    @GetMapping("/damage-reg")
+    public String damageRegistrator(HttpSession session){
+        boolean isLoggedIn = userService.checkLoginStatus(session);
+        session.setAttribute("isLoggedIn", isLoggedIn);
+
+        Role role = userService.verifyUserRole(session);
+
+        if(isLoggedIn == true && (role.equals(Role.DAMAGEREGISTRATOR) || role.equals(Role.ADMIN))){
+            return "menuPages/damageRegistrator";
+        } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
+            return "redirect:/";
+        }
+        return "redirect:/";
     }
 
-    @PostMapping("/logIn")
+    @PostMapping("/login")
     public String loginForm(WebRequest wr, HttpSession session){
         String username = wr.getParameter("username");
         String password = wr.getParameter("password");
@@ -54,4 +73,6 @@ public class UserController {
         }
         return "redirect:/";
     }
+
+
 }
