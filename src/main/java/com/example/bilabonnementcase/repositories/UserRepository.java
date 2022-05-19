@@ -1,9 +1,7 @@
 package com.example.bilabonnementcase.repositories;
-
 import com.example.bilabonnementcase.models.Role;
 import com.example.bilabonnementcase.models.User;
 import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
