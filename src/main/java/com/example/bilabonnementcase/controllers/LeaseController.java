@@ -45,13 +45,14 @@ public class LeaseController {
     public String createLeaseContract(WebRequest dataFromForm){
         int leaseContractId = -1;
         String username = dataFromForm.getParameter("username");
-        String leasePeriod = dataFromForm.getParameter("leasePeriod");
+        String leaseStart = dataFromForm.getParameter("leaseStart");
+        String leaseEnd = dataFromForm.getParameter("leaseEnd");
         int leasePrice = Integer.parseInt(dataFromForm.getParameter("leasePrice"));
-        int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
         String fileName = dataFromForm.getParameter("fileName");
+        int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
 
-        LeaseContract tempLeaseContract = new LeaseContract(leaseContractId, username, leasePeriod, leasePrice,
-                carNumber, fileName);
+        LeaseContract tempLeaseContract = new LeaseContract(leaseContractId, username, leaseStart, leaseEnd, leasePrice, fileName,
+                carNumber);
 
         String returnSite = leaseServices.createLeaseContract(tempLeaseContract);
 

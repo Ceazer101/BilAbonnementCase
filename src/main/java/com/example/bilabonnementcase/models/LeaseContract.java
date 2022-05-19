@@ -6,18 +6,20 @@ public class LeaseContract {
 
     private int contractId;
     private String salesPerson;
-    private String leasePeriod;
+    private String leaseStart;
+    private String leaseEnd;
     private int leasePrice;
     private int carNumber;
     private String file;
 
-    public LeaseContract(int contractId, String salesPerson, String leasePeriod, int leasePrice, int carNumber, String file) {
+    public LeaseContract(int contractId, String salesPerson, String leaseStart, String leaseEnd, int leasePrice, String file, int carNumber) {
         this.contractId = contractId;
         this.salesPerson = salesPerson;
-        this.leasePeriod = leasePeriod;
+        this.leaseStart = leaseStart;
+        this.leaseEnd = leaseEnd;
         this.leasePrice = leasePrice;
-        this.carNumber = carNumber;
         this.file = file;
+        this.carNumber = carNumber;
     }
 
     public int getLeasePrice() {
@@ -32,8 +34,12 @@ public class LeaseContract {
         return salesPerson;
     }
 
-    public String getLeasePeriod() {
-        return leasePeriod;
+    public String getLeaseStart() {
+        return leaseStart;
+    }
+
+    public String getLeaseEnd() {
+        return leaseEnd;
     }
 
     public int getCarNumber() {

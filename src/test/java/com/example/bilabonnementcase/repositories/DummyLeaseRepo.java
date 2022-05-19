@@ -9,7 +9,7 @@ public class DummyLeaseRepo implements IRepository<LeaseContract>{
 
     ArrayList<LeaseContract> leases = new ArrayList<LeaseContract>(
             Arrays.asList(
-                    new LeaseContract(1, "Chris", "2022-02-04", 666, 2, "djdf")
+                    new LeaseContract(1, "Chris", "2022-02-04", "2023-02-04", 666, "djdf", 2)
             )
     );
 
