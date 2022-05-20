@@ -32,7 +32,7 @@ public class DummyUserRepo implements IRepository{
     }
 
     @Override
-    public Object getEntityById(int id) {
+    public ArrayList<Object> getListOfObject() {
         return null;
     }
 

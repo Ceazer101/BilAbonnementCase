@@ -7,6 +7,7 @@ import com.example.bilabonnementcase.repositories.RepairListRepository;
 import com.example.bilabonnementcase.services.LeaseServices;
 import com.example.bilabonnementcase.services.RepairListServices;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
@@ -29,6 +30,11 @@ public class RepairListController {
         return "successPages/createRepairListSuccessPage";
     }
 
+    @GetMapping("/viewRepairLists")
+    public String viewRepairLists(Model model){
+        System.out.println(model.addAttribute("allReapirlists", repairListServices.showRepairLists()));
+        return "viewPages/viewRepairLists";
+    }
 
     @GetMapping("/deleteRepairList")
     public String deleteRepairList(){

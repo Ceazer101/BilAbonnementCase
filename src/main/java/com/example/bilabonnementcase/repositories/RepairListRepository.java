@@ -5,7 +5,9 @@ import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 //Author: Güler
@@ -36,8 +38,32 @@ public class RepairListRepository implements IRepository<RepairList> {
     }
 
     @Override
-    public RepairList getEntityById(int id) {
-        return null;
+    public ArrayList<RepairList> getListOfObject() {
+        ArrayList<RepairList> allRepairLists = new ArrayList<>();
+        int id = 0;
+        String repairStart = "";
+        int carNumber = 0;
+
+        String sqlString = ("SELECT * FROM owxws8zh8rp2amnk.repairlists;");
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sqlString);
+
+            ResultSet repairRS = pstmt.executeQuery();
+            while (repairRS.next()){
+                id = repairRS.getInt(1);
+                repairStart = repairRS.getString(2);
+                carNumber = repairRS.getInt(3);
+
+                RepairList tempList = new RepairList(id, repairStart, carNumber);
+
+                allRepairLists.add(tempList);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Failed at showing repair lists. Try again.");
+            e.printStackTrace();
+        }
+        return allRepairLists;
     }
 
     @Override

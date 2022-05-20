@@ -24,7 +24,7 @@ public class DummyLeaseRepo implements IRepository<LeaseContract>{
     }
 
     @Override
-    public LeaseContract getEntityById(int id) {
+    public ArrayList<LeaseContract> getListOfObject() {
         return null;
     }
 

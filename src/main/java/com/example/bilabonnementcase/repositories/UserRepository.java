@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 //Author: Maja
 public class UserRepository implements IRepository<User>{
@@ -22,7 +23,7 @@ public class UserRepository implements IRepository<User>{
     }
 
     @Override
-    public User getEntityById(int id) {
+    public ArrayList<User> getListOfObject() {
         return null;
     }
 

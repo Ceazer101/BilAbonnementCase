@@ -6,6 +6,7 @@ import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 //Author: Güler
@@ -42,7 +43,7 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
     }
 
     @Override
-    public LeaseContract getEntityById(int id) {
+    public ArrayList<LeaseContract> getListOfObject() {
         return null;
     }
 

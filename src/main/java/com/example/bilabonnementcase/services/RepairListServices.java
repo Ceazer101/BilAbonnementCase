@@ -3,6 +3,8 @@ package com.example.bilabonnementcase.services;
 import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.repositories.IRepository;
 
+import java.util.ArrayList;
+
 //Author: Güler
 public class RepairListServices {
 
@@ -18,6 +20,10 @@ public class RepairListServices {
             return "redirect:/createRepairListSuccessPage";
         }
         return "redirect:/errorPage";
+    }
+
+    public ArrayList<RepairList> showRepairLists(){
+        return repository.getListOfObject();
     }
 
     public String deleteRepairList(int repairListId){
