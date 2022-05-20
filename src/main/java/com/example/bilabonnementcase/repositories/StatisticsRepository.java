@@ -37,7 +37,7 @@ public class StatisticsRepository {
         boolean rented;
 
         String sqlString = "SELECT *  FROM owxws8zh8rp2amnk.cars " +
-                "WHERE (`rented` = '" + isCarRented + "')";
+                "WHERE (`is_rented` = '" + isCarRented + "')";
 
         try{
 
@@ -78,7 +78,7 @@ public class StatisticsRepository {
         int getPrice;
         int totalPrice = 0;
 
-        String sqlString = "SELECT `Price` FROM owxws8zh8rp2amnk.leasecontracts ";
+        String sqlString = "SELECT `lease_price` FROM owxws8zh8rp2amnk.leasecontracts ";
 
         try{
 

@@ -27,12 +27,27 @@ public class UserController {
         Role role = userService.verifyUserRole(session);
 
         if(isLoggedIn == true && (role.equals(Role.DATAREGISTRATOR) || role.equals(Role.ADMIN))){
-            return "menuPages/dataRegistrator";
+            return "menuPages/dataRegistratorMenu";
         } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
             return "redirect:/";
         }
         return "redirect:/";
 
+    }
+
+    @GetMapping("/business-dev")
+    public String businessDeveloper(HttpSession session){
+        boolean isLoggedIn = userService.checkLoginStatus(session);
+        session.setAttribute("isLoggedIn", isLoggedIn);
+
+        Role role = userService.verifyUserRole(session);
+
+        if(isLoggedIn == true && (role.equals(Role.BUSINESSDEVELOPER) || role.equals(Role.ADMIN))){
+            return "menuPages/businessDeveloperMenu";
+        } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
+            return "redirect:/";
+        }
+        return "redirect:/";
     }
 
     @GetMapping("/damage-reg")
@@ -43,14 +58,14 @@ public class UserController {
         Role role = userService.verifyUserRole(session);
 
         if(isLoggedIn == true && (role.equals(Role.DAMAGEREGISTRATOR) || role.equals(Role.ADMIN))){
-            return "menuPages/damageRegistrator";
+            return "menuPages/damageRegistratorMenu";
         } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
             return "redirect:/";
         }
         return "redirect:/";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/")
     public String loginForm(WebRequest wr, HttpSession session){
         String username = wr.getParameter("username");
         String password = wr.getParameter("password");

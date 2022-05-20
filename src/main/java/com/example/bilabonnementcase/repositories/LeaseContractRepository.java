@@ -66,4 +66,16 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
         }
         return true;
     }
+
+
+    //Maja prøver at lave
+    public boolean isCarRented(){
+        return true;
+    }
+
+    public boolean isLeasePeriodOver(){
+        return true;
+    }
+
+
 }
