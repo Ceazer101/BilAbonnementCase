@@ -5,6 +5,7 @@ import com.example.bilabonnementcase.models.LeaseContract;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//Author: Chris
 public class DummyLeaseRepo implements IRepository<LeaseContract>{
 
     ArrayList<LeaseContract> leases = new ArrayList<LeaseContract>(

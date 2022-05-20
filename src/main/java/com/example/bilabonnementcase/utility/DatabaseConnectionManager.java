@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//Author: Chris
 public class DatabaseConnectionManager {
 
     private static String url;

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-//Author: Güler
+//Author: Güler, Chris
 public class RepairListRepository implements IRepository<RepairList> {
 
     private Connection conn;

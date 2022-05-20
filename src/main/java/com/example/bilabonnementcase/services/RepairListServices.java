@@ -5,7 +5,7 @@ import com.example.bilabonnementcase.repositories.IRepository;
 
 import java.util.ArrayList;
 
-//Author: Güler
+//Author: Güler, Chris
 public class RepairListServices {
 
     private final IRepository<RepairList> repository;

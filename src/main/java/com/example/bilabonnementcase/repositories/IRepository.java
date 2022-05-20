@@ -2,8 +2,7 @@ package com.example.bilabonnementcase.repositories;
 
 import java.util.ArrayList;
 
-//Author: Maja
-//Author: Güler
+//Author: Maja, Güler
 public interface IRepository<T> {
 
     public boolean create(T entity);

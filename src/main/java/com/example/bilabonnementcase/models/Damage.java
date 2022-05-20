@@ -1,5 +1,6 @@
 package com.example.bilabonnementcase.models;
 
+//Author: Chris
 public class Damage {
 
     private int damageId;
