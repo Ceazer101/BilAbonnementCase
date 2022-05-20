@@ -28,7 +28,7 @@ public class UserRepository implements IRepository<User>{
     }
 
     @Override
-    public boolean update(String collumnName, int id) {
+    public boolean update(User entity) {
         return false;
     }
 

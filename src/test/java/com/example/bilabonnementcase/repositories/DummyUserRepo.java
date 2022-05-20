@@ -1,11 +1,7 @@
 package com.example.bilabonnementcase.repositories;
 
 
-import com.example.bilabonnementcase.models.LeaseContract;
-import com.example.bilabonnementcase.models.User;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class DummyUserRepo implements IRepository{
 /*
@@ -37,7 +33,7 @@ public class DummyUserRepo implements IRepository{
     }
 
     @Override
-    public boolean update(String collumn, int id) {
+    public boolean update(Object entity) {
         return false;
     }
 

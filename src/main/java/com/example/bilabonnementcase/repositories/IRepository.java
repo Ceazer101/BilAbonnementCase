@@ -10,7 +10,7 @@ public interface IRepository<T> {
 
     public ArrayList<T> getListOfObject();
 
-    public boolean update(String collumn, int id);
+    public boolean update(T entity);
 
     public boolean delete(int id);
 }

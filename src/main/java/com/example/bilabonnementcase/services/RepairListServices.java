@@ -26,6 +26,14 @@ public class RepairListServices {
         return repository.getListOfObject();
     }
 
+    public String updateRepaiList(RepairList repairList){
+
+        if(repository.update(repairList) == true){
+            return "redirect:/updateRepairListSuccessPage";
+        }
+        return "redirect:/errorPage";
+    }
+
     public String deleteRepairList(int repairListId){
 
         if(repository.delete(repairListId) == true){

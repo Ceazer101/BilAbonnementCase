@@ -67,19 +67,25 @@ public class RepairListRepository implements IRepository<RepairList> {
     }
 
     @Override
-    public boolean update(String collumnName, int id) {
+    public boolean update(RepairList entity) {
 
         try{
-            PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.repairlists " +
-                    "SET " + collumnName + " WHERE (repairlist_id = " + id + ")");
+            PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.repairlists" +
+                    " SET `repair_start`= ?, `car_number` = ? " +
+                    "WHERE (`repairlist_id` = ?)");
 
-            pstmt.executeUpdate();
+            pstmt.setString(1, entity.getRepairStart());
+            pstmt.setInt(2, entity.getCarNumber());
+
+            pstmt.setInt(3, entity.getRepairListId());
+
+            pstmt.execute();
 
         } catch (SQLException e){
             e.printStackTrace();
         }
 
-        return false;
+        return true;
     }
 
     @Override
