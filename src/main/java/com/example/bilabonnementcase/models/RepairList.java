@@ -14,6 +14,10 @@ public class RepairList {
         this.carNumber = carNumber;
     }
 
+    public RepairList(int carNumber) {
+        this.carNumber = carNumber;
+    }
+
     public int getRepairListId() {
         return repairListId;
     }

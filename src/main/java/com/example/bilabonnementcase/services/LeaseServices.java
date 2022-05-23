@@ -2,10 +2,12 @@ package com.example.bilabonnementcase.services;
 
 import com.example.bilabonnementcase.models.LeaseContract;
 import com.example.bilabonnementcase.repositories.IRepository;
+import com.example.bilabonnementcase.repositories.LeaseContractRepository;
 
 //Author: Maja, Güler
 public class LeaseServices {
 
+    LeaseContractRepository leaseContractRepository = new LeaseContractRepository();
     private final IRepository<LeaseContract> repository;
 
     public LeaseServices(IRepository<LeaseContract> leaseContractRepository) {
@@ -27,7 +29,6 @@ public class LeaseServices {
         }
         return "redirect:/errorPage";
     }
-
 
 
 }

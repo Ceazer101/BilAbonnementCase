@@ -17,7 +17,7 @@ public class HomeController {
 
     @GetMapping("/error-page")
     public String errorPage(){
-        return "errorPage";
+        return "errorPages/genericErrorPage";
     }
 
 }

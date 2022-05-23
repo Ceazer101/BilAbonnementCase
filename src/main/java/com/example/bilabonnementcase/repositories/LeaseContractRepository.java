@@ -5,7 +5,9 @@ import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -68,15 +70,6 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
         return true;
     }
 
-
-    //Maja prøver at lave
-    public boolean isCarRented(){
-        return true;
-    }
-
-    public boolean isLeasePeriodOver(){
-        return true;
-    }
 
 
 }
