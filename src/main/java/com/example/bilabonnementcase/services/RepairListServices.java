@@ -19,10 +19,10 @@ public class RepairListServices {
 
 
     public ArrayList<RepairList> showRepairLists(){
-        return repository.getListOfObject();
+        return repository.getAllEntities();
     }
 
-    public String updateRepaiList(RepairList repairList){
+    public String updateRepairList(RepairList repairList){
 
         if(repository.update(repairList) == true){
             return "redirect:/updateRepairListSuccessPage";

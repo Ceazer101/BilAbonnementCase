@@ -7,7 +7,7 @@ public interface IRepository<T> {
 
     public boolean create(T entity);
 
-    public ArrayList<T> getListOfObject();
+    public ArrayList<T> getAllEntities();
 
     public boolean update(T entity);
 

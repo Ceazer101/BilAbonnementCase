@@ -37,7 +37,7 @@ public class RepairListRepository implements IRepository<RepairList> {
     }
 
     @Override
-    public ArrayList<RepairList> getListOfObject() {
+    public ArrayList<RepairList> getAllEntities() {
         ArrayList<RepairList> allRepairLists = new ArrayList<>();
         int id = 0;
         String repairStart = "";

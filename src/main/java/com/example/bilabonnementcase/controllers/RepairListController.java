@@ -58,7 +58,7 @@ public class RepairListController {
 
         RepairList tempRepairList = new RepairList(repairListId, repairStart, carNumber);
 
-        String returnSite = repairListServices.updateRepaiList(tempRepairList);
+        String returnSite = repairListServices.updateRepairList(tempRepairList);
 
         return returnSite;
     }

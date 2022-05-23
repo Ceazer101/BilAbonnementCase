@@ -23,7 +23,7 @@ public class UserRepository implements IRepository<User>{
     }
 
     @Override
-    public ArrayList<User> getListOfObject() {
+    public ArrayList<User> getAllEntities() {
         return null;
     }
 

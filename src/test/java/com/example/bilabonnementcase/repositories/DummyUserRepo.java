@@ -28,7 +28,7 @@ public class DummyUserRepo implements IRepository{
     }
 
     @Override
-    public ArrayList<Object> getListOfObject() {
+    public ArrayList<Object> getAllEntities() {
         return null;
     }
 

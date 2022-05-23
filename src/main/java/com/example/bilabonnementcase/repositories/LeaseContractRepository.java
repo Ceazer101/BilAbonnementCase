@@ -45,7 +45,7 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
     }
 
     @Override
-    public ArrayList<LeaseContract> getListOfObject() {
+    public ArrayList<LeaseContract> getAllEntities() {
         return null;
     }
 
