@@ -1,6 +1,7 @@
 package com.example.bilabonnementcase.repositories;
 
 import com.example.bilabonnementcase.models.LeaseContract;
+import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
 
 import java.sql.Connection;
@@ -46,7 +47,40 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
 
     @Override
     public ArrayList<LeaseContract> getAllEntities() {
-        return null;
+        ArrayList<LeaseContract> allLeases = new ArrayList<>();
+        int contractId;
+        String salesPerson;
+        String leaseStart;
+        String leaseEnd;
+        int leasePrice;
+        String file;
+        int carNumber;
+
+        String sqlString = ("SELECT * FROM owxws8zh8rp2amnk.leasecontracts;");
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sqlString);
+
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()){
+                contractId = rs.getInt(1);
+                salesPerson = rs.getString(2);
+                leaseStart = rs.getString(3);
+                leaseEnd = rs.getString(4);
+                leasePrice = rs.getInt(5);
+                file = rs.getString(6);
+                carNumber = rs.getInt(7);
+
+                LeaseContract tempList = new LeaseContract(contractId, salesPerson, leaseStart, leaseEnd, leasePrice, file, carNumber);
+
+                allLeases.add(tempList);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Failed at showing repair lists. Try again.");
+            e.printStackTrace();
+        }
+        return allLeases;
     }
 
     @Override

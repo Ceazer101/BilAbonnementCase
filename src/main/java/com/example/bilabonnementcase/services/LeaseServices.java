@@ -1,8 +1,11 @@
 package com.example.bilabonnementcase.services;
 
 import com.example.bilabonnementcase.models.LeaseContract;
+import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.repositories.IRepository;
 import com.example.bilabonnementcase.repositories.LeaseContractRepository;
+
+import java.util.ArrayList;
 
 //Author: Maja, Güler
 public class LeaseServices {
@@ -20,6 +23,10 @@ public class LeaseServices {
             return "redirect:/leaseSuccess";
         }
         return "redirect:/errorPage";
+    }
+
+    public ArrayList<LeaseContract> showLeaseContracts(){
+        return repository.getAllEntities();
     }
     
     public String deleteLeaseContract(int leaseContractId){

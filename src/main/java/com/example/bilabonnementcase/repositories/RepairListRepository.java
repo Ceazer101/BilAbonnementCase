@@ -47,11 +47,11 @@ public class RepairListRepository implements IRepository<RepairList> {
         try {
             PreparedStatement pstmt = conn.prepareStatement(sqlString);
 
-            ResultSet repairRS = pstmt.executeQuery();
-            while (repairRS.next()){
-                id = repairRS.getInt(1);
-                repairStart = repairRS.getString(2);
-                carNumber = repairRS.getInt(3);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()){
+                id = rs.getInt(1);
+                repairStart = rs.getString(2);
+                carNumber = rs.getInt(3);
 
                 RepairList tempList = new RepairList(id, repairStart, carNumber);
 

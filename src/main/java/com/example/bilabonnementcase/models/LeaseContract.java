@@ -9,8 +9,8 @@ public class LeaseContract {
     private String leaseStart;
     private String leaseEnd;
     private int leasePrice;
-    private int carNumber;
     private String file;
+    private int carNumber;
 
     public LeaseContract(int contractId, String salesPerson, String leaseStart, String leaseEnd, int leasePrice, String file, int carNumber) {
         this.contractId = contractId;
@@ -52,11 +52,14 @@ public class LeaseContract {
 
     @Override
     public String toString() {
-        return "leaseContract{" +
+        return "LeaseContract{" +
                 "contractId=" + contractId +
                 ", salesPerson='" + salesPerson + '\'' +
-                ", car=" + carNumber +
-                ", file=" + file +
+                ", leaseStart='" + leaseStart + '\'' +
+                ", leaseEnd='" + leaseEnd + '\'' +
+                ", leasePrice=" + leasePrice +
+                ", carNumber=" + carNumber +
+                ", file='" + file + '\'' +
                 '}';
     }
 }

@@ -4,6 +4,7 @@ import com.example.bilabonnementcase.models.LeaseContract;
 import com.example.bilabonnementcase.repositories.LeaseContractRepository;
 import com.example.bilabonnementcase.services.LeaseServices;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
@@ -18,6 +19,12 @@ public class LeaseController {
     @GetMapping("/getCreateLeaseContract")
     public String createLeaseContract(){
         return "createPages/createLeaseContract";
+    }
+
+    @GetMapping("/viewLeaseContracts")
+    public String viewLeaseContracts(Model model){
+        System.out.println(model.addAttribute("allLeaseContracts", leaseServices.showLeaseContracts()));
+        return "viewPages/viewLeaseContracts";
     }
 
     @GetMapping("/leaseSuccess")
