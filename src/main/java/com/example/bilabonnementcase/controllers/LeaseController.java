@@ -1,6 +1,7 @@
 package com.example.bilabonnementcase.controllers;
 
 import com.example.bilabonnementcase.models.LeaseContract;
+import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.repositories.LeaseContractRepository;
 import com.example.bilabonnementcase.services.LeaseServices;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,28 @@ public class LeaseController {
     public String viewLeaseContracts(Model model){
         System.out.println(model.addAttribute("allLeaseContracts", leaseServices.showLeaseContracts()));
         return "viewPages/viewLeaseContracts";
+    }
+
+    @GetMapping("/update-lease")
+    public String updateLeaseContract(){
+        return "updatePages/updateLeaseContract";
+    }
+
+    @PostMapping("updateLeaseContract")
+    public String updateLeaseContract(WebRequest dataFromForm){
+        int leaseId = Integer.parseInt(dataFromForm.getParameter("leaseId"));
+        String username = dataFromForm.getParameter("username");
+        String leaseStart = dataFromForm.getParameter("leaseStart");
+        String leaseEnd = dataFromForm.getParameter("leaseEnd");
+        int leasePrice = Integer.parseInt(dataFromForm.getParameter("leasePrice"));
+        String fileName = dataFromForm.getParameter("fileName");
+        int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
+
+        LeaseContract tempRepairList = new LeaseContract(leaseId, username, leaseStart, leaseEnd, leasePrice, fileName, carNumber);
+
+        String returnSite = leaseServices.updateLeaseContract(tempRepairList);
+
+        return returnSite;
     }
 
     @GetMapping("/leaseSuccess")

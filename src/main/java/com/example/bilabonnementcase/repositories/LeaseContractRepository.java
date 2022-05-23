@@ -86,7 +86,27 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
     @Override
     public boolean update(LeaseContract entity) {
 
-        return false;
+        try{
+            PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.leasecontracts" +
+                    " SET `sales_person`= ?, `lease_start` = ?, `lease_end`= ?, `lease_price` = ?, `file`= ?, `car_number` = ? " +
+                    "WHERE (`leasecontracts_id` = ?)");
+
+            pstmt.setString(1, entity.getSalesPerson());
+            pstmt.setString(2, entity.getLeaseStart());
+            pstmt.setString(3, entity.getLeaseEnd());
+            pstmt.setInt(4, entity.getLeasePrice());
+            pstmt.setString(5, entity.getFile());
+            pstmt.setInt(6, entity.getCarNumber());
+
+            pstmt.setInt(7, entity.getContractId());
+
+            pstmt.execute();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return true;
     }
 
     @Override

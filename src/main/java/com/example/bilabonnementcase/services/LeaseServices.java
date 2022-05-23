@@ -28,6 +28,14 @@ public class LeaseServices {
     public ArrayList<LeaseContract> showLeaseContracts(){
         return repository.getAllEntities();
     }
+
+    public String updateLeaseContract(LeaseContract leaseContract){
+
+        if(repository.update(leaseContract) == true){
+            return "redirect:/leaseSuccess";
+        }
+        return "redirect:/error-page";
+    }
     
     public String deleteLeaseContract(int leaseContractId){
 
