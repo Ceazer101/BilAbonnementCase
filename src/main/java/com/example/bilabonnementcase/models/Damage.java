@@ -17,6 +17,13 @@ public class Damage {
         this.repairListId = repairListId;
     }
 
+    public Damage(int damageId, String damageTitle, String damageDescription, int damagePrice) {
+        this.damageId = damageId;
+        this.damageTitle = damageTitle;
+        this.damageDescription = damageDescription;
+        this.damagePrice = damagePrice;
+    }
+
     public int getDamageId() {
         return damageId;
     }

@@ -38,31 +38,7 @@ public class RepairListRepository implements IRepository<RepairList> {
 
     @Override
     public ArrayList<RepairList> getAllEntities() {
-        ArrayList<RepairList> allRepairLists = new ArrayList<>();
-        int id = 0;
-        String repairStart = "";
-        int carNumber = 0;
-
-        String sqlString = ("SELECT * FROM owxws8zh8rp2amnk.repairlists;");
-        try {
-            PreparedStatement pstmt = conn.prepareStatement(sqlString);
-
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()){
-                id = rs.getInt(1);
-                repairStart = rs.getString(2);
-                carNumber = rs.getInt(3);
-
-                RepairList tempList = new RepairList(id, repairStart, carNumber);
-
-                allRepairLists.add(tempList);
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Failed at showing repair lists. Try again.");
-            e.printStackTrace();
-        }
-        return allRepairLists;
+        return null;
     }
 
     @Override
@@ -222,6 +198,62 @@ public class RepairListRepository implements IRepository<RepairList> {
         return repairListId;
     }
 
+    public RepairList getRepairlistFromCar(int carNumber) {
+        int repairListId = 0;
+        String repairStart = "";
+        RepairList tempObject = null;
 
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM owxws8zh8rp2amnk.repairlists " +
+                    "WHERE `car_number` = ?;");
+
+            pstmt.setInt(1, carNumber);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                repairListId = rs.getInt("repairlist_id");
+                repairStart = rs.getString("repair_start");
+
+                tempObject = new RepairList(repairListId, repairStart, carNumber);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Failed at showing repair lists. Try again.");
+            e.printStackTrace();
+        }
+        return tempObject;
+    }
+
+    public Damage getDamagesFromCar(int repairId) {
+        int id = 0;
+        String title = "";
+        String description = "";
+        int price = 0;
+        Damage tempObject = null;
+
+        try {
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM owxws8zh8rp2amnk.Damages " +
+                    "WHERE `repairlist_id` = ?;");
+
+            pstmt.setInt(1, repairId);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                id = rs.getInt(1);
+                title = rs.getString(2);
+                description = rs.getString(3);
+                price = rs.getInt(4);
+
+                tempObject = new Damage(id, title, description, price);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Failed at showing repair lists. Try again.");
+            e.printStackTrace();
+        }
+        return tempObject;
+    }
 
 }

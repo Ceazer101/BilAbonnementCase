@@ -39,10 +39,31 @@ public class RepairListController {
         return "successPages/createRepairListSuccessPage";
     }
 
+    @GetMapping("/viewRepairlistByCar")
+    public String viewRepairLists(Model model, HttpSession session){
+        int carNumber = (int) session.getAttribute("carNumber");
+        int repairId = (int) session.getAttribute("repairId");
+        model.addAttribute("allRepairlists", repairListServices.showCarRepairlist(carNumber));
+        model.addAttribute("allDamages", repairListServices.showCarDamages(repairId));
+        return "viewPages/viewRepairlistByCar";
+    }
+
     @GetMapping("/viewRepairLists")
-    public String viewRepairLists(Model model){
-        System.out.println(model.addAttribute("allReapirlists", repairListServices.showRepairLists()));
+    public String viewCarRepairlist(){
         return "viewPages/viewRepairLists";
+    }
+
+    @PostMapping("/viewRepairLists")
+    public String viewCarRepairlist(WebRequest dataFromForm, HttpSession session){
+        int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
+        int repairId = (repairListServices.getRepairListId(carNumber));
+
+        session.setAttribute("carNumber", carNumber);
+        session.setAttribute("repairId", repairId);
+
+        String returnSite = repairListServices.checkIfCarHasRepairlist(carNumber);
+
+        return returnSite;
     }
 
     @GetMapping("/update-repair")

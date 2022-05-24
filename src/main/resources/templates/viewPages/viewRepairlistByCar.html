@@ -11,12 +11,15 @@
     <div class="heading">
         <h1>View Repair Lists</h1>
     </div>
-    <div class="form">
-        <form method="POST" action="/viewRepairLists">
-            <label for="carNumber">Vognnummer</label>
-            <input type="text" id="carNumber" name="carNumber">
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+    <div class="center">
+        <p>
+            <span th:text="${allRepairlists}"></span>
+        </p>
+    </div>
+    <div>
+        <p>
+            <span th:text="${allDamages}"></span>
+        </p>
     </div>
 </div>
 </body>

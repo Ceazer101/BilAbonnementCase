@@ -17,11 +17,6 @@ public class RepairListServices {
         this.repository = repairListRepository;
     }
 
-
-    public ArrayList<RepairList> showRepairLists(){
-        return repository.getAllEntities();
-    }
-
     public String updateRepairList(RepairList repairList){
 
         if(repository.update(repairList) == true){
@@ -49,6 +44,21 @@ public class RepairListServices {
         }
 
         return collumn;
+    }
+
+    public RepairList showCarRepairlist(int carNumber){
+        return repairListRepository.getRepairlistFromCar(carNumber);
+    }
+
+    public String checkIfCarHasRepairlist(int carNumber){
+        if(repairListRepository.getRepairlistFromCar(carNumber) == null){
+            return "redirect:/error-page";
+        }
+        return "redirect:/viewRepairlistByCar";
+    }
+
+    public Damage showCarDamages(int repairId){
+        return repairListRepository.getDamagesFromCar(repairId);
     }
 
  //*********  MAJAS WORK IN PROGRESS ************
@@ -100,8 +110,5 @@ public class RepairListServices {
     public int getRepairListId(int carNumber){
         return repairListRepository.getRepairListIdFromCarNumber(carNumber);
     }
-
-
-
 
 }

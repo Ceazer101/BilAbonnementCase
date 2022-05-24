@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 
-//Author: Güler
+//Author: Güler, Chris
 public class LeaseContractRepository implements IRepository<LeaseContract> {
 
     private Connection conn;
