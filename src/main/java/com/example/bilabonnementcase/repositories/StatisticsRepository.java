@@ -4,18 +4,13 @@ import com.example.bilabonnementcase.models.Car;
 import com.example.bilabonnementcase.services.StatisticsServices;
 import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 
 public class StatisticsRepository {
 
     private Connection conn;
-    private Statement stmt;
-
 
     public StatisticsRepository(){
         this.conn = DatabaseConnectionManager.getConnection();
@@ -41,10 +36,9 @@ public class StatisticsRepository {
                 "WHERE (`is_rented` = '" + isCarRented + "')";
 
         try{
+            PreparedStatement pstmt = conn.prepareStatement(sqlString);
 
-            stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-
-            ResultSet carRS = stmt.executeQuery(sqlString);
+            ResultSet carRS = pstmt.executeQuery();
             while(carRS.next()){
                 carNumber = carRS.getInt(1);
                 chassisNumber = carRS.getString(2);
@@ -74,7 +68,6 @@ public class StatisticsRepository {
 
 
     public int valueOfRentedCars(){
-        Connection con = DatabaseConnectionManager.getConnection();
         ArrayList<Integer> prices = new ArrayList<>();
         int getPrice;
         int totalPrice = 0;
@@ -83,9 +76,9 @@ public class StatisticsRepository {
 
         try{
 
-            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            PreparedStatement pstmt = conn.prepareStatement(sqlString);
 
-            ResultSet value = stmt.executeQuery(sqlString);
+            ResultSet value = pstmt.executeQuery();
             while(value.next()){
                  getPrice = Integer.parseInt(value.getString(1));
                  prices.add(getPrice);
