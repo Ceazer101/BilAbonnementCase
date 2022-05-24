@@ -2,6 +2,7 @@ package com.example.bilabonnementcase.services;
 
 import com.example.bilabonnementcase.repositories.StatisticsRepository;
 
+//Author: Kenn
 public class StatisticsServices {
 
     StatisticsRepository sr = new StatisticsRepository();
@@ -13,6 +14,5 @@ public class StatisticsServices {
     public int valueOfRentedCars(){
         return sr.valueOfRentedCars();
     }
-
 
 }

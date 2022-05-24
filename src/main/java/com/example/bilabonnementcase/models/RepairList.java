@@ -1,6 +1,5 @@
 package com.example.bilabonnementcase.models;
 
-
 //Author: Güler
 public class RepairList {
 
@@ -11,10 +10,6 @@ public class RepairList {
     public RepairList(int repairListId, String repairStart, int carNumber) {
         this.repairListId = repairListId;
         this.repairStart = repairStart;
-        this.carNumber = carNumber;
-    }
-
-    public RepairList(int carNumber) {
         this.carNumber = carNumber;
     }
 

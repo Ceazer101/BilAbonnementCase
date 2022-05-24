@@ -1,4 +1,5 @@
 package com.example.bilabonnementcase.services;
+
 import com.example.bilabonnementcase.models.Role;
 import com.example.bilabonnementcase.models.User;
 import com.example.bilabonnementcase.repositories.UserRepository;
@@ -61,7 +62,5 @@ public class UserServices {
         Role currentUserRole = currentUser.getRole();
         return currentUserRole;
     }
-
-
 
 }

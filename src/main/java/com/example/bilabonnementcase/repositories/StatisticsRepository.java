@@ -1,13 +1,11 @@
 package com.example.bilabonnementcase.repositories;
 
 import com.example.bilabonnementcase.models.Car;
-import com.example.bilabonnementcase.services.StatisticsServices;
 import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
-
 import java.sql.*;
 import java.util.ArrayList;
 
-
+//Author: Kenn
 public class StatisticsRepository {
 
     private Connection conn;
@@ -16,8 +14,8 @@ public class StatisticsRepository {
         this.conn = DatabaseConnectionManager.getConnection();
     }
 
-
     public int carsRented(){
+
         ArrayList<Car> allcars = new ArrayList<Car>();
         int isCarRented = 1;
 
@@ -56,7 +54,6 @@ public class StatisticsRepository {
                 allcars.add(tempCar);
 
                 rentedCars = allcars.size();
-
             }
 
         } catch (SQLException e){
@@ -68,7 +65,9 @@ public class StatisticsRepository {
 
 
     public int valueOfRentedCars(){
+
         ArrayList<Integer> prices = new ArrayList<>();
+
         int getPrice;
         int totalPrice = 0;
 
@@ -93,6 +92,6 @@ public class StatisticsRepository {
         }
 
         return totalPrice;
-
     }
+
 }

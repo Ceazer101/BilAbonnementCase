@@ -3,11 +3,9 @@ package com.example.bilabonnementcase.repositories;
 import com.example.bilabonnementcase.models.Damage;
 import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 
 //Author: Güler, Chris
 public class RepairListRepository implements IRepository<RepairList> {
@@ -20,6 +18,7 @@ public class RepairListRepository implements IRepository<RepairList> {
 
     @Override
     public boolean create(RepairList entity) {
+
         try{
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk.repairlists " +
                     "(`repair_start`, `car_number`) VALUES (?,?)");
@@ -78,8 +77,6 @@ public class RepairListRepository implements IRepository<RepairList> {
         return true;
     }
 
-    //*********  MAJAS WORK IN PROGRESS ************
-
     public boolean isCarRented(int carNumber){
         boolean isRented = false;
 
@@ -104,7 +101,6 @@ public class RepairListRepository implements IRepository<RepairList> {
 
         return isRented;
     }
-
 
     public boolean isLeasePeriodOver(int carNumber){
         boolean isOver = false;
@@ -136,13 +132,13 @@ public class RepairListRepository implements IRepository<RepairList> {
         return isOver;
     }
 
-    //Opdatere ikke fordi dato ikke kan findes
     public void updateLeasePeriodStatus(boolean periodOver, int carNumber){
 
         try{
             if (periodOver == true) {
 
-                PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.cars SET `has_lease_ended` = ? " +
+                PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.cars " +
+                        "SET `has_lease_ended` = ? " +
                         "WHERE `car_number` = ?;");
 
                 pstmt.setInt(1, 1);
@@ -156,7 +152,6 @@ public class RepairListRepository implements IRepository<RepairList> {
 
     }
 
-    //Kan ikke add på grund af foreign key constraint
     public boolean createDamage(Damage damage, int repairListId) {
         try{
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk.damages " +

@@ -1,7 +1,6 @@
 package com.example.bilabonnementcase.services;
 
 import com.example.bilabonnementcase.models.LeaseContract;
-import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.repositories.IRepository;
 import com.example.bilabonnementcase.repositories.LeaseContractRepository;
 
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 //Author: Maja, Güler, Chris
 public class LeaseServices {
 
-    LeaseContractRepository leaseContractRepository = new LeaseContractRepository();
+    private final LeaseContractRepository leaseContractRepository = new LeaseContractRepository();
     private final IRepository<LeaseContract> repository;
 
     public LeaseServices(IRepository<LeaseContract> leaseContractRepository) {
@@ -22,7 +21,7 @@ public class LeaseServices {
         if(repository.create(leaseContract) == true){
             return "redirect:/leaseSuccess";
         }
-        return "redirect:/errorPage";
+        return "redirect:/leaseError";
     }
 
     public ArrayList<LeaseContract> showLeaseContracts(){
@@ -34,7 +33,7 @@ public class LeaseServices {
         if(repository.update(leaseContract) == true){
             return "redirect:/leaseSuccess";
         }
-        return "redirect:/error-page";
+        return "redirect:/leaseError";
     }
     
     public String deleteLeaseContract(int leaseContractId){
@@ -42,8 +41,7 @@ public class LeaseServices {
         if(repository.delete(leaseContractId) == true){
             return "redirect:/deleteLeaseSuccess";
         }
-        return "redirect:/errorPage";
+        return "redirect:/leaseError";
     }
-
 
 }

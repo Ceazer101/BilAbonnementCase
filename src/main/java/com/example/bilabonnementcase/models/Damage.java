@@ -24,40 +24,16 @@ public class Damage {
         this.damagePrice = damagePrice;
     }
 
-    public int getDamageId() {
-        return damageId;
-    }
-
     public String getDamageTitle() {
         return damageTitle;
-    }
-
-    public void setDamageTitle(String damageTitle) {
-        this.damageTitle = damageTitle;
     }
 
     public String getDamageDescription() {
         return damageDescription;
     }
 
-    public void setDamageDescription(String damageDescription) {
-        this.damageDescription = damageDescription;
-    }
-
     public int getDamagePrice() {
         return damagePrice;
-    }
-
-    public void setDamagePrice(int damagePrice) {
-        this.damagePrice = damagePrice;
-    }
-
-    public int getRepairListId() {
-        return repairListId;
-    }
-
-    public void setRepairListId(int repairListId) {
-        this.repairListId = repairListId;
     }
 
     @Override

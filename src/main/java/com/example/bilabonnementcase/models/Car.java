@@ -30,39 +30,6 @@ public class Car {
         return carNumber;
     }
 
-    public String getChassisNumber() {
-        return chassisNumber;
-    }
-
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public String getEquipmentLevel() {
-        return equipmentLevel;
-    }
-
-    public int getSteelPrice() {
-        return steelPrice;
-    }
-
-    public int getRegistrationCharge() {
-        return registrationCharge;
-    }
-
-    public int getCo2Discharge() {
-        return co2Discharge;
-    }
-
-    public boolean isRented() {
-        return rented;
-    }
-
     @Override
     public String toString() {
         return "Car{" +

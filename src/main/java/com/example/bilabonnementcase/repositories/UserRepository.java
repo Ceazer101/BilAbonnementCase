@@ -1,4 +1,5 @@
 package com.example.bilabonnementcase.repositories;
+
 import com.example.bilabonnementcase.models.Role;
 import com.example.bilabonnementcase.models.User;
 import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
@@ -38,6 +39,7 @@ public class UserRepository implements IRepository<User>{
     }
 
     public boolean validateLoginInformation(String username, String password){
+
         boolean isAMatch = false;
 
         try{
@@ -47,10 +49,10 @@ public class UserRepository implements IRepository<User>{
             pstmt.setString(1, username);
             pstmt.setString(2, password);
 
-            ResultSet rsVerify = pstmt.executeQuery();
+            ResultSet rs = pstmt.executeQuery();
 
-            while (rsVerify.next()) {
-                if(password.equals(rsVerify.getString("password")) && username.equals(rsVerify.getString("username"))){
+            while (rs.next()) {
+                if(password.equals(rs.getString("password")) && username.equals(rs.getString("username"))){
                     isAMatch = true;
                 }
             }
@@ -63,6 +65,7 @@ public class UserRepository implements IRepository<User>{
     }
 
     public User getUserByUsername(String username){
+
         String password = "";
         Role role = null;
         User thisUser = null;
@@ -87,9 +90,6 @@ public class UserRepository implements IRepository<User>{
 
         return thisUser;
     }
-
-
-
 
 }
 

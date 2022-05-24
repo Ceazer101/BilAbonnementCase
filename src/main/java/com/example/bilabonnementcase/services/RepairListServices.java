@@ -5,8 +5,6 @@ import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.repositories.IRepository;
 import com.example.bilabonnementcase.repositories.RepairListRepository;
 
-import java.util.ArrayList;
-
 //Author: Güler, Chris
 public class RepairListServices {
 
@@ -16,52 +14,6 @@ public class RepairListServices {
     public RepairListServices(IRepository<RepairList> repairListRepository) {
         this.repository = repairListRepository;
     }
-
-    public String updateRepairList(RepairList repairList){
-
-        if(repository.update(repairList) == true){
-            return "redirect:/updateRepairListSuccessPage";
-        }
-        return "redirect:/error-page";
-    }
-
-    public String deleteRepairList(int repairListId){
-
-        if(repository.delete(repairListId) == true){
-            return "redirect:/deleteRepairListSuccessPage";
-        }
-        return "redirect:/error-page";
-    }
-
-
-    public String getCollumnName(String input){
-        String collumn = "";
-
-        if (input.equals("start")){
-            collumn = "repair_start";
-        } else if(input.equals("car")){
-            collumn = "car_number";
-        }
-
-        return collumn;
-    }
-
-    public RepairList showCarRepairlist(int carNumber){
-        return repairListRepository.getRepairlistFromCar(carNumber);
-    }
-
-    public String checkIfCarHasRepairlist(int carNumber){
-        if(repairListRepository.getRepairlistFromCar(carNumber) == null){
-            return "redirect:/error-page";
-        }
-        return "redirect:/viewRepairlistByCar";
-    }
-
-    public Damage showCarDamages(int repairId){
-        return repairListRepository.getDamagesFromCar(repairId);
-    }
-
- //*********  MAJAS WORK IN PROGRESS ************
 
     public String goToCreateRepairList(int carNumber){
         boolean goOn = hasCarReturnedAfterEndedLeasePeriod(carNumber);
@@ -102,13 +54,44 @@ public class RepairListServices {
 
         if(repairListRepository.createDamage(damage, repairListId) == true){
             return "redirect:/createRepairListSuccessPage";
-           }
+        }
 
         return "redirect:/error-page";
     }
 
     public int getRepairListId(int carNumber){
         return repairListRepository.getRepairListIdFromCarNumber(carNumber);
+    }
+
+    public RepairList showCarRepairlist(int carNumber){
+        return repairListRepository.getRepairlistFromCar(carNumber);
+    }
+
+    public String checkIfCarHasRepairlist(int carNumber){
+        if(repairListRepository.getRepairlistFromCar(carNumber) == null){
+            return "redirect:/error-page";
+        }
+        return "redirect:/viewRepairlistByCar";
+    }
+
+    public Damage showCarDamages(int repairId){
+        return repairListRepository.getDamagesFromCar(repairId);
+    }
+
+    public String updateRepairList(RepairList repairList){
+
+        if(repository.update(repairList) == true){
+            return "redirect:/updateRepairListSuccessPage";
+        }
+        return "redirect:/error-page";
+    }
+
+    public String deleteRepairList(int repairListId){
+
+        if(repository.delete(repairListId) == true){
+            return "redirect:/deleteRepairListSuccessPage";
+        }
+        return "redirect:/error-page";
     }
 
 }

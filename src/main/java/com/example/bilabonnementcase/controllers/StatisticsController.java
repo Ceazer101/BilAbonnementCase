@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+//Author: Kenn
 @Controller
 public class StatisticsController {
 
@@ -18,4 +19,5 @@ public class StatisticsController {
 
         return "viewPages/viewStatistics";
     }
+
 }

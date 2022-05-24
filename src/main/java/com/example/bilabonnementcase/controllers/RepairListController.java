@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
-
 import javax.servlet.http.HttpSession;
 
 //Author: Güler, Chris
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpSession;
 public class RepairListController {
 
     private RepairListServices repairListServices = new RepairListServices(new RepairListRepository());
-
 
     @GetMapping("/create-repair")
     public String createRepairList(){
@@ -37,6 +35,53 @@ public class RepairListController {
     @GetMapping("/createRepairListSuccessPage")
     public String createRepairListSuccessPage(){
         return "successPages/createRepairListSuccessPage";
+    }
+
+    @GetMapping("/car-not-ready")
+    public String carNorReady(){
+        return "errorPages/carNotReadyForRepair";
+    }
+
+    @PostMapping("/createRepairList")
+    public String startCreateRepairList(WebRequest dataFromForm, HttpSession session){
+        int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
+
+        session.setAttribute("carNumber", carNumber);
+
+        String returnSite = repairListServices.goToCreateRepairList(carNumber);
+
+        return returnSite;
+    }
+
+    @PostMapping("create-repairlist")
+    public String createRepairListStepTwo(WebRequest dataFromForm, HttpSession session){
+        int repairListId = -1;
+
+        String repairStart = dataFromForm.getParameter("repairStartDate");
+        int carNumber = (int) session.getAttribute("carNumber");
+
+        RepairList repairListToCreate = new RepairList(repairListId, repairStart, carNumber);
+
+        String returnSite = repairListServices.createRepairList(repairListToCreate);
+
+        return returnSite;
+    }
+
+    @PostMapping("add-damage")
+    public String addDamageToRepairList(WebRequest dataFromForm, HttpSession session){
+        int carNumber = (int) session.getAttribute("carNumber");
+
+        int damageId = -1;
+        String damageTitle = dataFromForm.getParameter("damageTitle");
+        String damageDesc = dataFromForm.getParameter("damageDesc");
+        int priceForDamageRepair = Integer.parseInt(dataFromForm.getParameter("priceForRepair"));
+        int repairListId = repairListServices.getRepairListId(carNumber);
+
+        Damage damage = new Damage(damageId, damageTitle, damageDesc, priceForDamageRepair, repairListId);
+
+        String returnSite = repairListServices.addDamageToRepairList(damage, repairListId);
+
+        return returnSite;
     }
 
     @GetMapping("/viewRepairlistByCar")
@@ -99,55 +144,6 @@ public class RepairListController {
             return "successPages/deleteRepairListSuccessPage";
         }
 
-    @GetMapping("/car-not-ready")
-    public String carNorReady(){
-        return "errorPages/carNotReadyForRepair";
-    }
-
-    //*********  MAJAS WORK IN PROGRESS ************
-
-    @PostMapping("/createRepairList")
-    public String startCreateRepairList(WebRequest dataFromForm, HttpSession session){
-        int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
-
-        session.setAttribute("carNumber", carNumber);
-
-        String returnSite = repairListServices.goToCreateRepairList(carNumber);
-
-        return returnSite;
-    }
-
-    @PostMapping("create-repairlist")
-    public String createRepairListStepTwo(WebRequest dataFromForm, HttpSession session){
-        int repairListId = -1;
-
-        String repairStart = dataFromForm.getParameter("repairStartDate");
-        int carNumber = (int) session.getAttribute("carNumber");
-
-        RepairList repairListToCreate = new RepairList(repairListId, repairStart, carNumber);
-
-        String returnSite = repairListServices.createRepairList(repairListToCreate);
-
-        return returnSite;
-    }
-
-    @PostMapping("add-damage")
-    public String addDamageToRepairList(WebRequest dataFromForm, HttpSession session){
-        int carNumber = (int) session.getAttribute("carNumber");
-
-        int damageId = -1;
-        String damageTitle = dataFromForm.getParameter("damageTitle");
-        String damageDesc = dataFromForm.getParameter("damageDesc");
-        int priceForDamageRepair = Integer.parseInt(dataFromForm.getParameter("priceForRepair"));
-        int repairListId = repairListServices.getRepairListId(carNumber);
-
-        Damage damage = new Damage(damageId, damageTitle, damageDesc, priceForDamageRepair, repairListId);
-
-        String returnSite = repairListServices.addDamageToRepairList(damage, repairListId);
-
-        return returnSite;
-    }
-
 
     @PostMapping("/deleteRepairList")
     public String deleteLeaseContract(WebRequest dataFromForm){
@@ -157,4 +153,5 @@ public class RepairListController {
 
         return returnSite;
     }
+
 }

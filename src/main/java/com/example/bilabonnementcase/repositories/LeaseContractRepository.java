@@ -1,16 +1,12 @@
 package com.example.bilabonnementcase.repositories;
 
 import com.example.bilabonnementcase.models.LeaseContract;
-import com.example.bilabonnementcase.models.RepairList;
 import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
-
 
 //Author: Güler, Chris
 public class LeaseContractRepository implements IRepository<LeaseContract> {
@@ -23,6 +19,7 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
 
     @Override
     public boolean create(LeaseContract entity) {
+
        try{
            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk.leasecontracts " +
                    "(`sales_person`, `lease_start`, `lease_end`, `lease_price`, `file`, `car_number`)"
@@ -47,7 +44,9 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
 
     @Override
     public ArrayList<LeaseContract> getAllEntities() {
+
         ArrayList<LeaseContract> allLeases = new ArrayList<>();
+
         int contractId;
         String salesPerson;
         String leaseStart;
@@ -71,7 +70,8 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
                 file = rs.getString(6);
                 carNumber = rs.getInt(7);
 
-                LeaseContract tempList = new LeaseContract(contractId, salesPerson, leaseStart, leaseEnd, leasePrice, file, carNumber);
+                LeaseContract tempList = new LeaseContract
+                        (contractId, salesPerson, leaseStart, leaseEnd, leasePrice, file, carNumber);
 
                 allLeases.add(tempList);
             }
@@ -88,7 +88,8 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
 
         try{
             PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.leasecontracts" +
-                    " SET `sales_person`= ?, `lease_start` = ?, `lease_end`= ?, `lease_price` = ?, `file`= ?, `car_number` = ? " +
+                    " SET `sales_person`= ?, `lease_start` = ?, `lease_end`= ?, `lease_price` = ?, " +
+                    "`file`= ?, `car_number` = ? " +
                     "WHERE (`leasecontracts_id` = ?)");
 
             pstmt.setString(1, entity.getSalesPerson());
@@ -123,7 +124,5 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
         }
         return true;
     }
-
-
 
 }
