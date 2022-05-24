@@ -8,30 +8,29 @@
 </head>
 
 <body>
-<div class="content">
-    <div class="heading">
-        <h1>Register lejekontrakt</h1>
+    <div class="content">
+        <div class="heading">
+            <h1>Register lejekontrakt</h1>
+        </div>
+        <div class="form">
+            <form method="POST" action="/createLeaseContract">
+                <label for="username">Sælger navn (maybe remove)</label>
+                <input type="text" id="username" name="username">
+                <label for="leaseStart">lejeperiode (start)</label>
+                <input type="text" id="leaseStart" name="leaseStart">
+                <label for="leaseEnd">lejeperiode (slut)</label>
+                <input type="text" id="leaseEnd" name="leaseEnd">
+                <label for="leasePrice">lejekontrakt pris</label>
+                <input type="text" id="leasePrice" name="leasePrice">
+                <label for="carNumber">Vognnummer</label>
+                <input type="text" id="carNumber" name="carNumber">
+                <label for="fileName">Filnavn</label>
+                <input type="text" id="fileName" name="fileName">
+                <label for="rentalStatus">Rented</label>
+                <input type="checkbox" id="rentalStatus" name="rentalStatus">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
     </div>
-    <div class="form">
-        <form method="POST" action="/createLeaseContract">
-            <label for="username">Sælger navn (maybe remove)</label>
-            <input type="text" id="username" name="username">
-            <label for="leaseStart">lejeperiode (start)</label>
-            <input type="text" id="leaseStart" name="leaseStart">
-            <label for="leaseEnd">lejeperiode (slut)</label>
-            <input type="text" id="leaseEnd" name="leaseEnd">
-            <label for="leasePrice">lejekontrakt pris</label>
-            <input type="text" id="leasePrice" name="leasePrice">
-            <label for="carNumber">Vognnummer</label>
-            <input type="text" id="carNumber" name="carNumber">
-            <label for="fileName">Filnavn</label>
-            <input type="text" id="fileName" name="fileName">
-            <label for="rentalStatus">Rented</label>
-            <input type="checkbox" id="rentalStatus" name="rentalStatus">
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-    </div>
-</div>
-
 </body>
 </html>

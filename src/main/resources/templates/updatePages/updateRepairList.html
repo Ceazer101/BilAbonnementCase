@@ -7,22 +7,21 @@
     <title>update repairlist</title>
 </head>
 <body>
-<div class="content">
-    <div class="heading">
-        <h1>Opdater skader og reparationer</h1>
+    <div class="content">
+        <div class="heading">
+            <h1>Opdater skader og reparationer</h1>
+        </div>
+        <div class="form">
+            <form method="POST" action="/updateRepairList">
+                <label for="repairID">Reparations id</label>
+                <input type="text" id="repairID" name="repairID">
+                <label for="damagePeriod">reperation startsperiode</label>
+                <input type="text" id="damagePeriod" name="damagePeriod">
+                <label for="carNumber">Vognnummer</label>
+                <input type="text" id="carNumber" name="carNumber">
+                <button type="submit" class="btn btn-primary">Opdater</button>
+            </form>
+        </div>
     </div>
-    <div class="form">
-        <form method="POST" action="/updateRepairList">
-            <label for="repairID">Reparations id</label>
-            <input type="text" id="repairID" name="repairID">
-            <label for="damagePeriod">reperation startsperiode</label>
-            <input type="text" id="damagePeriod" name="damagePeriod">
-            <label for="carNumber">Vognnummer</label>
-            <input type="text" id="carNumber" name="carNumber">
-            <button type="submit" class="btn btn-primary">Opdater</button>
-        </form>
-    </div>
-</div>
-
 </body>
 </html>

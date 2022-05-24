@@ -7,41 +7,29 @@
     <title>View statistics</title>
 </head>
 <body>
-<div>
-    <br>
-    <br>
-    <h1>Velkommen til statistikkerne</h1>
-</div>
-<div class="content">
-
-    <br>
-    <br>
-    <div >
-        <div>Antallet af udlejede biler er:</div>
-    </div>
-
-
-
-
-    <div >
-        <b>
-        <p th:text="${rentedcars}"/>
-        </b>
+    <div class="content">
+        <div class="heading">
+            <br>
+            <br>
+            <h1>Velkommen til statistikkerne</h1>
+        </div>
         <br>
+        <br>
+        <div >
+            <div>Antallet af udlejede biler er:</div>
+        </div>
+        <div >
+            <b>
+            <p th:text="${rentedcars}"/>
+            </b>
+            <br>
+        </div>
+        <div class="col-md-12 text-center">
+            <div>Værdien for de udlejede biler: </div>
+            <b>
+            <p th:text="${valueOfRentedCars}">
+            </b>
+        </div>
     </div>
-
-    <div class="col-md-12 text-center">
-
-    <div>Værdien for de udlejede biler: </div>
-
-    <b>
-    <p th:text="${valueOfRentedCars}">
-    </b>
-
-    </div>
-
-
-</div>
-
 </body>
 </html>

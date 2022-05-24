@@ -7,20 +7,20 @@
     <title>View Repair Lists</title>
 </head>
 <body>
-<div class="content">
-    <div class="heading">
-        <h1>View Repair Lists</h1>
+    <div class="content">
+        <div class="heading">
+            <h1>View Repair Lists</h1>
+        </div>
+        <div class="center">
+            <p>
+                <span th:text="${allRepairlists}"></span>
+            </p>
+        </div>
+        <div>
+            <p>
+                <span th:text="${allDamages}"></span>
+            </p>
+        </div>
     </div>
-    <div class="center">
-        <p>
-            <span th:text="${allRepairlists}"></span>
-        </p>
-    </div>
-    <div>
-        <p>
-            <span th:text="${allDamages}"></span>
-        </p>
-    </div>
-</div>
 </body>
 </html>

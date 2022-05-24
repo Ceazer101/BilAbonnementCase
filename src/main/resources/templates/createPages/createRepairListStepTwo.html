@@ -7,18 +7,17 @@
     <title>create repair List</title>
 </head>
 <body>
-<div class="content">
-    <div class="heading">
-        <h1>Register skader og reparationer</h1>
+    <div class="content">
+        <div class="heading">
+            <h1>Register skader og reparationer</h1>
+        </div>
+        <div class="form">
+            <form method="POST" action="/create-repairlist">
+                <label for="repairStartDate">Reparationens startdato</label>
+                <input type="text" id="repairStartDate" name="repairStartDate">
+                <button type="submit" class="btn btn-primary">Næste</button>
+            </form>
+        </div>
     </div>
-    <div class="form">
-        <form method="POST" action="/create-repairlist">
-            <label for="repairStartDate">Reparationens startdato</label>
-            <input type="text" id="repairStartDate" name="repairStartDate">
-            <button type="submit" class="btn btn-primary">Næste</button>
-        </form>
-    </div>
-</div>
-
 </body>
 </html>
