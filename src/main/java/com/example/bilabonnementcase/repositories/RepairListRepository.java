@@ -42,7 +42,6 @@ public class RepairListRepository implements IRepository<RepairList> {
 
     @Override
     public boolean update(RepairList entity) {
-
         try{
             PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.repairlists" +
                     " SET `repair_start`= ?, `car_number` = ? " +
@@ -66,8 +65,8 @@ public class RepairListRepository implements IRepository<RepairList> {
     public boolean delete(int id) {
         try {
             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM `owxws8zh8rp2amnk`.`repairlists`" +
-                    " WHERE (`car_number` = '" + id + "' );");
-
+                    " WHERE (`car_number` = ? );");
+            pstmt.setInt(1, id);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -103,6 +102,7 @@ public class RepairListRepository implements IRepository<RepairList> {
     }
 
     public boolean isLeasePeriodOver(int carNumber){
+
         boolean isOver = false;
 
         try{
@@ -153,6 +153,7 @@ public class RepairListRepository implements IRepository<RepairList> {
     }
 
     public boolean createDamage(Damage damage, int repairListId) {
+
         try{
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO owxws8zh8rp2amnk.damages " +
                     "(`damage_title`, `damage_description`, `damage_price`, `repairlist_id`) VALUES (?,?,?,?)");

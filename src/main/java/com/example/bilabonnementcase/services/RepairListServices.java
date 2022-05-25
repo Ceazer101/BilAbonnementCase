@@ -15,6 +15,14 @@ public class RepairListServices {
         this.repository = repairListRepository;
     }
 
+    public String createRepairList(RepairList repairList){
+
+        if(repository.create(repairList) == true){
+            return "redirect:/add-damage";
+        }
+        return "redirect:/error-page";
+    }
+
     public String goToCreateRepairList(int carNumber){
         boolean goOn = hasCarReturnedAfterEndedLeasePeriod(carNumber);
         String returnSite = "";
@@ -28,15 +36,8 @@ public class RepairListServices {
         return returnSite;
     }
 
-    public String createRepairList(RepairList repairList){
-
-        if(repository.create(repairList) == true){
-            return "redirect:/add-damage";
-        }
-        return "redirect:/error-page";
-    }
-
     public boolean hasCarReturnedAfterEndedLeasePeriod(int carNumber){
+
         boolean leasePeriodOver = repairListRepository.isLeasePeriodOver(carNumber);
 
         if(leasePeriodOver == true){
@@ -55,7 +56,6 @@ public class RepairListServices {
         if(repairListRepository.createDamage(damage, repairListId) == true){
             return "redirect:/createRepairListSuccessPage";
         }
-
         return "redirect:/error-page";
     }
 

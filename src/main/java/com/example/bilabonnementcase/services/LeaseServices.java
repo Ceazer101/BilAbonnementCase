@@ -9,7 +9,6 @@ import java.util.ArrayList;
 //Author: Maja, Güler, Chris
 public class LeaseServices {
 
-    private final LeaseContractRepository leaseContractRepository = new LeaseContractRepository();
     private final IRepository<LeaseContract> repository;
 
     public LeaseServices(IRepository<LeaseContract> leaseContractRepository) {

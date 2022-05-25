@@ -1,15 +1,19 @@
 package com.example.bilabonnementcase.repositories;
 
 
+import com.example.bilabonnementcase.models.Role;
+import com.example.bilabonnementcase.models.User;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DummyUserRepo implements IRepository{
-/*
+
     ArrayList<User> userList = new ArrayList<User>(
             Arrays.asList(
-                    new User("maja", "hej"),
-                    new User("chris", "hejhej"),
-                    new User("güler", "hallo")
+                    new User("maja", "hej", Role.ADMIN),
+                    new User("chris", "hejhej", Role.DAMAGEREGISTRATOR),
+                    new User("güler", "hallo", Role.NOROLE)
             )
     );
 
@@ -20,7 +24,7 @@ public class DummyUserRepo implements IRepository{
             }
         }
         return false;
-    }*/
+    }
 
     @Override
     public boolean create(Object entity) {

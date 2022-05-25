@@ -11,7 +11,8 @@ public class LeaseContract {
     private String file;
     private int carNumber;
 
-    public LeaseContract(int contractId, String salesPerson, String leaseStart, String leaseEnd, int leasePrice, String file, int carNumber) {
+    public LeaseContract(int contractId, String salesPerson, String leaseStart,
+                         String leaseEnd, int leasePrice, String file, int carNumber) {
         this.contractId = contractId;
         this.salesPerson = salesPerson;
         this.leaseStart = leaseStart;
