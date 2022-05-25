@@ -9,6 +9,7 @@ import java.util.ArrayList;
 //Author: Maja, Güler, Chris
 public class LeaseServices {
 
+    private final LeaseContractRepository leaseContractRepository = new LeaseContractRepository();
     private final IRepository<LeaseContract> repository;
 
     public LeaseServices(IRepository<LeaseContract> leaseContractRepository) {
@@ -18,6 +19,7 @@ public class LeaseServices {
     public String createLeaseContract(LeaseContract leaseContract){
 
         if(repository.create(leaseContract) == true){
+            leaseContractRepository.updateRentedStatus(leaseContract.getCarNumber());
             return "redirect:/leaseSuccess";
         }
         return "redirect:/leaseError";
