@@ -98,7 +98,6 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
             pstmt.setInt(4, entity.getLeasePrice());
             pstmt.setString(5, entity.getFile());
             pstmt.setInt(6, entity.getCarNumber());
-
             pstmt.setInt(7, entity.getContractId());
 
             pstmt.execute();
@@ -124,6 +123,22 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
             e.printStackTrace();
         }
         return true;
+    }
+
+    public void updateRentedStatus(int carNumber){
+        try{
+            PreparedStatement pstmt = conn.prepareStatement("UPDATE owxws8zh8rp2amnk.cars SET `is_rented` = ? " +
+                    "WHERE `car_number` = ?;");
+
+            pstmt.setInt(1, 1);
+            pstmt.setInt(2, carNumber);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
     }
 
 }

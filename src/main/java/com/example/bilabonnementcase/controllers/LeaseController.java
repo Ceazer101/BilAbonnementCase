@@ -64,10 +64,10 @@ public class LeaseController {
         String fileName = dataFromForm.getParameter("fileName");
         int carNumber= Integer.parseInt(dataFromForm.getParameter("carNumber"));
 
-        LeaseContract tempRepairList = new LeaseContract
+        LeaseContract leaseContract = new LeaseContract
                 (leaseId, username, leaseStart, leaseEnd, leasePrice, fileName, carNumber);
 
-        String returnSite = leaseServices.updateLeaseContract(tempRepairList);
+        String returnSite = leaseServices.updateLeaseContract(leaseContract);
 
         return returnSite;
     }
