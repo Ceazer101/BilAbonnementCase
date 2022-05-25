@@ -59,6 +59,10 @@ input{
     border-radius: 10px;
 }
 
+.buttonStuff{
+    margin: 20%;
+}
+
 
 #username{
     padding-bottom: 2%;
