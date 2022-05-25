@@ -25,7 +25,11 @@ public class UserController {
     }
 
     @GetMapping("/logOut")
-    public String logOut(){
+    public String logOut(HttpSession session){
+        if(session.getAttribute("isLoggedIn") != null) {
+            session.invalidate();
+        }
+
         return "logOut";
     }
 
