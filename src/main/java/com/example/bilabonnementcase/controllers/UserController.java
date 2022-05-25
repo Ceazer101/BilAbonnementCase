@@ -9,7 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 
-//Author: Maja, Güler
+//Author: Maja, Güler, Kenneth
 @Controller
 public class UserController {
 
@@ -24,13 +24,15 @@ public class UserController {
         return response;
     }
 
-    @GetMapping("/logOut")
+
+
+    @GetMapping ("/logOut")
     public String logOut(HttpSession session){
         if(session.getAttribute("isLoggedIn") != null) {
             session.invalidate();
         }
 
-        return "logOut";
+        return "index";
     }
 
     @GetMapping("/admin")
