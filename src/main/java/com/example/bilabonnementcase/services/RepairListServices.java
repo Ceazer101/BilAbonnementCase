@@ -24,7 +24,7 @@ public class RepairListServices {
     }
 
     public String goToCreateRepairList(int carNumber){
-        boolean goOn = hasCarReturnedAfterEndedLeasePeriod(carNumber);
+        boolean goOn = isCarReady(carNumber);
         String returnSite = "";
 
         if(goOn == true){
@@ -36,7 +36,7 @@ public class RepairListServices {
         return returnSite;
     }
 
-    public boolean hasCarReturnedAfterEndedLeasePeriod(int carNumber){
+    public boolean isCarReady(int carNumber){
 
         boolean leasePeriodOver = repairListRepository.isLeasePeriodOver(carNumber);
 

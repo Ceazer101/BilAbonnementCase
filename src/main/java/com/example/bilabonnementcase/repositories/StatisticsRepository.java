@@ -6,47 +6,45 @@ import java.sql.*;
 import java.util.ArrayList;
 
 //Author: Kenn
-public class StatisticsRepository {
+public class StatisticsRepository implements IStatRepository <Car> {
 
     private Connection conn;
+
 
     public StatisticsRepository(){
         this.conn = DatabaseConnectionManager.getConnection();
     }
 
+    @Override
     public int carsRented(){
-
         ArrayList<Car> allcars = new ArrayList<Car>();
         int isCarRented = 1;
 
         int rentedCars = 0;
-        int carNumber ;
-        String chassisNumber;
-        String brand;
-        String model;
-        String equipmentLevel;
-        int steelPrice;
-        int registrationCharge;
-        int co2Discharge;
+        int carNumber, steelPrice, registrationCharge, co2Discharge;
+        String chassisNumber, brand, model, equipmentLevel;
         boolean rented;
 
+
         String sqlString = "SELECT *  FROM owxws8zh8rp2amnk.cars " +
-                "WHERE (`is_rented` = '" + isCarRented + "')";
+                "WHERE (`is_rented` = ? )";
 
         try{
             PreparedStatement pstmt = conn.prepareStatement(sqlString);
 
-            ResultSet carRS = pstmt.executeQuery();
-            while(carRS.next()){
-                carNumber = carRS.getInt(1);
-                chassisNumber = carRS.getString(2);
-                brand = carRS.getString(3);
-                model = carRS.getString(4);
-                equipmentLevel = carRS.getString(5);
-                steelPrice = carRS.getInt(6);
-                registrationCharge = carRS.getInt(7);
-                co2Discharge = carRS.getInt(8);
-                rented = carRS.getBoolean(9);
+            pstmt.setInt(1, isCarRented);
+
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                carNumber = rs.getInt(1);
+                chassisNumber = rs.getString(2);
+                brand = rs.getString(3);
+                model = rs.getString(4);
+                equipmentLevel = rs.getString(5);
+                steelPrice = rs.getInt(6);
+                registrationCharge = rs.getInt(7);
+                co2Discharge = rs.getInt(8);
+                rented = rs.getBoolean(9);
 
                 Car tempCar = new Car(carNumber, chassisNumber, brand, model, equipmentLevel,
                         steelPrice , registrationCharge, co2Discharge, rented);
@@ -64,6 +62,7 @@ public class StatisticsRepository {
     }
 
 
+    @Override
     public int valueOfRentedCars(){
 
         ArrayList<Integer> prices = new ArrayList<>();

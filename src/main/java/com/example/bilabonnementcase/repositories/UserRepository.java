@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 //Author: Maja
-public class UserRepository implements IRepository<User>{
+public class UserRepository implements IUserRepository <User> {
 
     private Connection conn;
 
@@ -19,25 +19,6 @@ public class UserRepository implements IRepository<User>{
     }
 
     @Override
-    public boolean create(User entity) {
-        return false;
-    }
-
-    @Override
-    public ArrayList<User> getAllEntities() {
-        return null;
-    }
-
-    @Override
-    public boolean update(User entity) {
-        return false;
-    }
-
-    @Override
-    public boolean delete(int id) {
-        return false;
-    }
-
     public boolean validateLoginInformation(String username, String password){
 
         boolean isAMatch = false;
@@ -64,6 +45,7 @@ public class UserRepository implements IRepository<User>{
         return isAMatch;
     }
 
+    @Override
     public User getUserByUsername(String username){
 
         String password = "";
