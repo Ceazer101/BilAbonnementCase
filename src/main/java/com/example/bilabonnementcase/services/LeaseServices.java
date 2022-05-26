@@ -32,7 +32,7 @@ public class LeaseServices {
     public String updateLeaseContract(LeaseContract leaseContract){
 
         if(repository.update(leaseContract) == true){
-            return "redirect:/leaseSuccess";
+            return "redirect:/updateLeaseSuccess";
         }
         return "redirect:/leaseError";
     }

@@ -54,6 +54,11 @@ public class LeaseController {
         return "updatePages/updateLeaseContract";
     }
 
+    @GetMapping("/updateLeaseSuccess")
+    public String updateLeaseSuccess(){
+        return "successPages/updateLeaseSuccess";
+    }
+
     @PostMapping("updateLeaseContract")
     public String updateLeaseContract(WebRequest dataFromForm){
         int leaseId = Integer.parseInt(dataFromForm.getParameter("leaseId"));
