@@ -65,7 +65,7 @@ public class RepairListRepository implements IRepository<RepairList> {
     public boolean delete(int id) {
         try {
             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM `owxws8zh8rp2amnk`.`repairlists`" +
-                    " WHERE (`car_number` = ? );");
+                    " WHERE (`repairlist_id` = ? );");
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
 

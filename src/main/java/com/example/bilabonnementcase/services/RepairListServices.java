@@ -44,7 +44,7 @@ public class RepairListServices {
             repairListRepository.updateLeasePeriodStatus(leasePeriodOver, carNumber);
         }
 
-        if (repairListRepository.isCarRented(carNumber) == false){
+        if (repairListRepository.isCarRented(carNumber) == true){
             return true;
         }
 
