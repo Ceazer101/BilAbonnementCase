@@ -25,12 +25,21 @@
             <br>
                 <div class = "row m-2">
                     <div class = "buttonStuff col-12">
-                <a href="/viewStatistics">
-                    <button type="button" class="btn btn-primary w-100">Se statistikker</button>
-                </a>
-                <br>
+                    <a href="/viewStatistics">
+                        <button type="button" class="btn btn-primary w-100">Se statistikker</button>
+                    </a>
+                    <br>
                     </div>
             </div>
+
+            <div class = "row m-2">
+                <div class="buttonStuff  col-12">
+                    <a href="/logOut">
+                        <button type="button" class="btn btn-primary w-100">Log out</button>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
     <div th:replace="fragments/generalFooter.html :: footer"></div>
