@@ -18,9 +18,7 @@ public class UserServices {
             user = userRepository.getUserByUsername(username);
             user.setRole(user.getRole());
 
-            if (user.getRole().equals(Role.ADMIN)){
-                return "redirect:/admin";
-            } else if(user.getRole().equals(Role.DATAREGISTRATOR)){
+            if(user.getRole().equals(Role.DATAREGISTRATOR)){
                 return "redirect:/data-reg";
             } else if(user.getRole().equals(Role.DAMAGEREGISTRATOR)){
                 return "redirect:/damage-reg";

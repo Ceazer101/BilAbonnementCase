@@ -11,7 +11,7 @@ public class DummyUserRepo implements IRepository{
 
     ArrayList<User> userList = new ArrayList<User>(
             Arrays.asList(
-                    new User("maja", "hej", Role.ADMIN),
+                    new User("maja", "hej", Role.DAMAGEREGISTRATOR),
                     new User("chris", "hejhej", Role.DAMAGEREGISTRATOR),
                     new User("güler", "hallo", Role.NOROLE)
             )

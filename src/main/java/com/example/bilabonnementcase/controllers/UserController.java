@@ -35,30 +35,14 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping("/admin")
-    public String admin(HttpSession session){
-        boolean isLoggedIn = userService.checkLoginStatus(session);
-        session.setAttribute("isLoggedIn", isLoggedIn);
-
-        Role role = userService.verifyUserRole(session);
-
-        if(isLoggedIn == true && role.equals(Role.ADMIN)){
-            return "menuPages/admin";
-        } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
-            return "redirect:/";
-        }
-        return "redirect:/";
-    }
-
     @GetMapping("/data-reg")
     public String dataRegistrator(HttpSession session){
-
         boolean isLoggedIn = userService.checkLoginStatus(session);
         session.setAttribute("isLoggedIn", isLoggedIn);
 
         Role role = userService.verifyUserRole(session);
 
-        if(isLoggedIn == true && (role.equals(Role.DATAREGISTRATOR) || role.equals(Role.ADMIN))){
+        if(isLoggedIn == true && (role.equals(Role.DATAREGISTRATOR))){
             return "menuPages/dataRegistratorMenu";
         } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
             return "redirect:/";
@@ -73,7 +57,7 @@ public class UserController {
 
         Role role = userService.verifyUserRole(session);
 
-        if(isLoggedIn == true && (role.equals(Role.DAMAGEREGISTRATOR) || role.equals(Role.ADMIN))){
+        if(isLoggedIn == true && (role.equals(Role.DAMAGEREGISTRATOR))){
             return "menuPages/damageRegistratorMenu";
         } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
             return "redirect:/";
@@ -88,7 +72,7 @@ public class UserController {
 
         Role role = userService.verifyUserRole(session);
 
-        if(isLoggedIn == true && (role.equals(Role.BUSINESSDEVELOPER) || role.equals(Role.ADMIN))){
+        if(isLoggedIn == true && (role.equals(Role.BUSINESSDEVELOPER))){
             return "menuPages/businessDeveloperMenu";
         } else if(isLoggedIn == false && role.equals(Role.NOROLE)){
             return "redirect:/";

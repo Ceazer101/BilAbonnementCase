@@ -14,7 +14,7 @@ class UserServicesTest {
         //Arrange
         DummyUserRepo dummyUserRepo = new DummyUserRepo();
 
-        User user1 = new User("maja", "hej", Role.ADMIN);
+        User user1 = new User("maja", "hej", Role.DAMAGEREGISTRATOR);
         User user2 = new User("maya", "hej", Role.BUSINESSDEVELOPER);
         User user3 = new User("maja", "yej", Role.DATAREGISTRATOR);
 
