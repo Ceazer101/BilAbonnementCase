@@ -11,7 +11,7 @@
         <div class="heading">
             <h1>Opdater Lejekontrakt</h1>
         </div>
-        <div class="form">
+        <div class="form row m-2">
             <form method="POST" action="/updateLeaseContract">
                 <label for="leaseId">Reparations id</label>
                 <input type="text" id="leaseId" name="leaseId">
@@ -29,7 +29,9 @@
                 <input type="text" id="fileName" name="fileName">
                 <label for="rentalStatus">Rented</label>
                 <input type="checkbox" id="rentalStatus" name="rentalStatus">
+                <div class="buttonStuff  col-6">
                 <button type="submit" class="btn btn-primary">Opdater</button>
+                </div>
             </form>
         </div>
     </div>
