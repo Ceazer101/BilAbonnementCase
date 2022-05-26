@@ -35,13 +35,8 @@ public class DummyStatisticsRepo {
 
     public int valueOfRentedCars(){
         int totalPrice = 0;
-        for(Car c: carList){
-            if (c.isRented() == true){
-                for(LeaseContract l: leaseList){
-                    if(c.getCarNumber() == l.getCarNumber())
-                    totalPrice += l.getLeasePrice();
-                }
-            }
+        for(LeaseContract l: leaseList){
+            totalPrice += l.getLeasePrice();
         }
         return totalPrice;
     }

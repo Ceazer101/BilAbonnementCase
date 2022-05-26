@@ -23,7 +23,7 @@ class StatisticsServicesTest {
     @Test
     void valueOfRentedCars() {
         //Arrange
-        int expectedResult = 2000;
+        int expectedResult = 3000;
 
         //Act
         int actualResult = dsRepo.valueOfRentedCars();

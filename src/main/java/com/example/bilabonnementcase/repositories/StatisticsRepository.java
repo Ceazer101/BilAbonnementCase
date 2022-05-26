@@ -26,7 +26,7 @@ public class StatisticsRepository implements IStatRepository <Car> {
         boolean rented;
 
 
-        String sqlString = "SELECT *  FROM owxws8zh8rp2amnk.cars " +
+        String sqlString = "SELECT * FROM owxws8zh8rp2amnk.cars " +
                 "WHERE (`is_rented` = ? )";
 
         try{
@@ -60,7 +60,6 @@ public class StatisticsRepository implements IStatRepository <Car> {
 
         return rentedCars;
     }
-
 
     @Override
     public int valueOfRentedCars(){

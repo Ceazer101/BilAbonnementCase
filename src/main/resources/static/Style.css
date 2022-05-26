@@ -41,7 +41,7 @@ a{
     margin-top: 5%;
     background-color: rgba(255,255,255,85);
     border-radius: 2%;
-    padding-bottom: 5%;
+    padding-bottom: 2.5%;
 
 }
 
@@ -60,9 +60,8 @@ input{
 }
 
 .buttonStuff{
-    margin: 20%;
+    margin: 1%;
 }
-
 
 #username{
     padding-bottom: 2%;
@@ -114,7 +113,7 @@ input{
     display: flex;
     justify-content: right;
     position: absolute;
-    bottom: 0%;
+    bottom: -30%;
 }
 
 #footerTitle {
