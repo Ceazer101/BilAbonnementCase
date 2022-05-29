@@ -37,9 +37,9 @@ public class LeaseServices {
         return "redirect:/leaseError";
     }
     
-    public String deleteLeaseContract(int leaseContractId){
+    public String deleteLeaseContract(int carNumber){
 
-        if(repository.delete(leaseContractId) == true){
+        if(repository.delete(carNumber) == true){
             return "redirect:/deleteLeaseSuccess";
         }
         return "redirect:/leaseError";

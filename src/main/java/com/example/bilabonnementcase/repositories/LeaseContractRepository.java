@@ -110,12 +110,12 @@ public class LeaseContractRepository implements IRepository<LeaseContract> {
     }
 
     @Override
-    public boolean delete(int id) {
+    public boolean delete(int carNumber) {
 
         try{
             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM `owxws8zh8rp2amnk`.`leasecontracts`" +
                     " WHERE (`car_number` = ? );");
-            pstmt.setInt(1, id);
+            pstmt.setInt(1, carNumber);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
