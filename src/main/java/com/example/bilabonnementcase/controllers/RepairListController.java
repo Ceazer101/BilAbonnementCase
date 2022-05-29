@@ -140,9 +140,9 @@ public class RepairListController {
     }
 
     @GetMapping("/deleteRepairListSuccessPage")
-        public String deleteRepairListSuccessPage(){
+    public String deleteRepairListSuccessPage(){
             return "successPages/deleteRepairListSuccessPage";
-        }
+    }
 
 
     @PostMapping("/deleteRepairList")

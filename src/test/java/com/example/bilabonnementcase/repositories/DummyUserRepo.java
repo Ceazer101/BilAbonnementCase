@@ -7,7 +7,7 @@ import com.example.bilabonnementcase.models.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DummyUserRepo implements IRepository{
+public class DummyUserRepo  {
 
     ArrayList<User> userList = new ArrayList<User>(
             Arrays.asList(
@@ -26,23 +26,5 @@ public class DummyUserRepo implements IRepository{
         return false;
     }
 
-    @Override
-    public boolean create(Object entity) {
-        return false;
-    }
 
-    @Override
-    public ArrayList<Object> getAllEntities() {
-        return null;
-    }
-
-    @Override
-    public boolean update(Object entity) {
-        return false;
-    }
-
-    @Override
-    public boolean delete(int id) {
-        return false;
-    }
 }
