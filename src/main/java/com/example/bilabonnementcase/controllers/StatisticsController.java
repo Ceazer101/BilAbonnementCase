@@ -14,7 +14,7 @@ public class StatisticsController {
     @GetMapping("/viewStatistics")
     public String viewStatistics(Model model){
 
-        model.addAttribute("rentedcars", service.rentedCars() );
+        model.addAttribute("rentedcars", service.rentedCars());
         model.addAttribute("valueOfRentedCars", service.valueOfRentedCars());
 
         return "viewPages/viewStatistics";
