@@ -8,7 +8,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//Author: Chris
+//Author: Chris, Maja, Güler, Kenn
 class LeaseServicesTest {
 
     @Test

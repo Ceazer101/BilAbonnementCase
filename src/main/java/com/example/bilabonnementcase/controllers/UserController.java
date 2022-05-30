@@ -9,7 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 
-//Author: Maja, Güler, Kenneth
+//Author: Maja, Güler, Kenneth, Chris
 @Controller
 public class UserController {
 

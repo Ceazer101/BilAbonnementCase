@@ -4,9 +4,9 @@ import com.example.bilabonnementcase.models.Role;
 import com.example.bilabonnementcase.models.User;
 import com.example.bilabonnementcase.repositories.DummyUserRepo;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+//Author: Chris, Maja, Güler, Kenn
 class UserServicesTest {
 
     @Test

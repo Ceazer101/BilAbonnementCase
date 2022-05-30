@@ -1,12 +1,11 @@
 package com.example.bilabonnementcase.repositories;
 
-
 import com.example.bilabonnementcase.models.Role;
 import com.example.bilabonnementcase.models.User;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//Author: Chris, Maja, Güler, Kenn
 public class DummyUserRepo implements IRepository{
 
     ArrayList<User> userList = new ArrayList<User>(

@@ -4,6 +4,7 @@ import com.example.bilabonnementcase.repositories.DummyStatisticsRepo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+//Author: Chris
 class StatisticsServicesTest {
 
     DummyStatisticsRepo dsRepo = new DummyStatisticsRepo();
