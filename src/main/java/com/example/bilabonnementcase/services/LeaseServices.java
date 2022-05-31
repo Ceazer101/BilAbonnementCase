@@ -6,7 +6,7 @@ import com.example.bilabonnementcase.repositories.LeaseContractRepository;
 
 import java.util.ArrayList;
 
-//Author: Maja, Güler, Chris
+//Author: Maja, Güler, Chris, Kenneth
 public class LeaseServices {
 
     private final LeaseContractRepository leaseContractRepository = new LeaseContractRepository();

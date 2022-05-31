@@ -7,7 +7,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-//Author: Güler, Chris
+//Author: Güler, Chris, Maja
 public class RepairListRepository implements IRepository<RepairList> {
 
     private Connection conn;

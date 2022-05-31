@@ -2,7 +2,7 @@ package com.example.bilabonnementcase.services;
 
 import com.example.bilabonnementcase.repositories.StatisticsRepository;
 
-//Author: Kenn
+//Author: Kenneth
 public class StatisticsServices {
 
     StatisticsRepository sr = new StatisticsRepository();

@@ -1,6 +1,6 @@
 package com.example.bilabonnementcase.models;
 
-//Author: Güler
+//Author: Güler, Kenneth
 public class LeaseContract {
 
     private int contractId;
