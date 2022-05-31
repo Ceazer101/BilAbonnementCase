@@ -7,7 +7,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-//Author: Güler, Chris
+//Author: Güler, Chris, Maja
 public class RepairListRepository implements IRepository<RepairList> {
 
     private Connection conn;
@@ -87,7 +87,7 @@ public class RepairListRepository implements IRepository<RepairList> {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()){
-                if (rs.getInt("is_rented") == 1){
+                if (rs.getInt("is_rented") == 0){
                     isRented = true;
                 } else {
                     isRented = false;

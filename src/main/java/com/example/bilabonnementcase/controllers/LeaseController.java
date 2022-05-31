@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
-//Author: Güler, Chris
+//Author: Güler, Chris, Kenneth
 @Controller
 public class LeaseController {
 

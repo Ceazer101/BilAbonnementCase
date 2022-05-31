@@ -5,7 +5,7 @@ import com.example.bilabonnementcase.utility.DatabaseConnectionManager;
 import java.sql.*;
 import java.util.ArrayList;
 
-//Author: Kenn
+//Author: Kenneth
 public class StatisticsRepository implements IStatRepository <Car> {
 
     private Connection conn;

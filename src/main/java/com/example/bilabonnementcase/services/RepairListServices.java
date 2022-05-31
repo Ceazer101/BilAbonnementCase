@@ -37,7 +37,6 @@ public class RepairListServices {
     }
 
     public boolean isCarReady(int carNumber){
-
         boolean leasePeriodOver = repairListRepository.isLeasePeriodOver(carNumber);
 
         if(leasePeriodOver == true){
