@@ -87,7 +87,7 @@ public class RepairListRepository implements IRepository<RepairList> {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()){
-                if (rs.getInt("is_rented") == 1){
+                if (rs.getInt("is_rented") == 0){
                     isRented = true;
                 } else {
                     isRented = false;
